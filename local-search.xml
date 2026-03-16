@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>git</title>
+    <link href="/blog/git.html"/>
+    <url>/blog/git.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h1><p><strong>1、创建 git 仓库</strong><br><img src="/blog/assets/git/file-20260316193745212.png"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo</title>
     <link href="/blog/hexo.html"/>
     <url>/blog/hexo.html</url>
