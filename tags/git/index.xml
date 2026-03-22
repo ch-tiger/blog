@@ -1,0 +1,6 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Git - 标签 - CH-Tiger 的技术笔记</title><link>https://blog.chsole.eu.org/tags/git/</link><description>Git - 标签 - CH-Tiger 的技术笔记</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>your-email@example.com (CH-Tiger)</managingEditor><webMaster>your-email@example.com (CH-Tiger)</webMaster><lastBuildDate>Sun, 22 Mar 2026 15:28:07 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/tags/git/" rel="self" type="application/rss+xml"/><item><title>git</title><link>https://blog.chsole.eu.org/posts/%E5%AD%A6%E4%B9%A0/git/</link><pubDate>Sun, 22 Mar 2026 15:28:07 +0800</pubDate><author>your-email@example.com (CH-Tiger)</author><guid>https://blog.chsole.eu.org/posts/%E5%AD%A6%E4%B9%A0/git/</guid><description><![CDATA[<p>#git #自定义域名</p>
+<h1 id="配置git">配置git</h1>
+<p><strong>1、创建 git 仓库</strong>
+</p>
+<p><strong>2、绑定自定义域名（使用 <code>custom.com</code>）</strong></p>
+<p>如果您希望使用第三方购买的域名（如 <code>example.com</code>），而非 <code>github.io</code> 域名：</p>]]></description></item></channel></rss>
