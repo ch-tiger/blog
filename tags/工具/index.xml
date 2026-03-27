@@ -1,44 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>工具 on CH-Tiger's Note</title><link>https://blog.chsole.eu.org/tags/%E5%B7%A5%E5%85%B7/</link><description>Recent content in 工具 on CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Mar 2026 12:39:04 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>常用工具</title><link>https://blog.chsole.eu.org/post/%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</link><pubDate>Fri, 27 Mar 2026 12:39:04 +0800</pubDate><guid>https://blog.chsole.eu.org/post/%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</guid><description>&lt;p&gt;#工具&lt;/p&gt;
-&lt;p&gt;工具: &lt;a class="link" href="https://mp.weixin.qq.com/s/esQxTGHEcAjnZMQTVbA5yg" target="_blank" rel="noopener"
- &gt;https://mp.weixin.qq.com/s/esQxTGHEcAjnZMQTVbA5yg&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="终端工具"&gt;终端工具
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;tilix&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="命令快捷"&gt;命令快捷
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;copyq&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="浏览器插件"&gt;浏览器插件
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;oneTab&lt;/li&gt;
-&lt;li&gt;Smart TOC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="wiki"&gt;wiki
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;csdiy.wiki&lt;/li&gt;
-&lt;li&gt;pytorch&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="news"&gt;news
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;hackernoon.com&lt;/li&gt;
-&lt;li&gt;producthunt.com&lt;/li&gt;
-&lt;li&gt;tmtpost.com&lt;/li&gt;
-&lt;li&gt;36kr.com&lt;/li&gt;
-&lt;li&gt;infoQ&lt;/li&gt;
-&lt;li&gt;brutalist.report/topic/tech&lt;/li&gt;
-&lt;li&gt;grafdom.com/blog/top-20-best-tech-websites-and-blogs&lt;/li&gt;
-&lt;li&gt;spectrum.ieee.oeg/tpoic&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="debug"&gt;debug
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;github yuanzhoulvpi2017/vscode_debug_transformers&lt;/li&gt;
-&lt;li&gt;zhaochenyang20/Awesome-ML-SYS-Tutorial&lt;/li&gt;
-&lt;li&gt;medium optimizing llm serving speed with sglang optuna hydra&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="zhihu"&gt;zhihu
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;DefTruth&lt;/li&gt;
-&lt;li&gt;BBuf&lt;/li&gt;
-&lt;li&gt;进击的Bruce&lt;/li&gt;
-&lt;/ul&gt;</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工具 - 标签 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/tags/%E5%B7%A5%E5%85%B7/</link><description>工具 - 标签 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Mar 2026 12:46:21 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/tags/%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml"/><item><title>常用工具</title><link>https://blog.chsole.eu.org/posts/%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</link><pubDate>Fri, 27 Mar 2026 12:46:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</guid><description><![CDATA[<p>#工具</p>
+<p>工具: <a href="https://mp.weixin.qq.com/s/esQxTGHEcAjnZMQTVbA5yg" target="_blank" rel="noopener noreffer ">https://mp.weixin.qq.com/s/esQxTGHEcAjnZMQTVbA5yg</a></p>
+<h2 id="终端工具">终端工具</h2>
+<ul>
+<li>tilix</li>
+</ul>
+<h2 id="命令快捷">命令快捷</h2>
+<ul>
+<li>copyq</li>
+</ul>
+<h2 id="浏览器插件">浏览器插件</h2>
+<ul>
+<li>oneTab</li>
+<li>Smart TOC</li>
+</ul>
+<h2 id="wiki">wiki</h2>
+<ul>
+<li>csdiy.wiki</li>
+<li>pytorch</li>
+</ul>
+<h2 id="news">news</h2>
+<ul>
+<li>hackernoon.com</li>
+<li>producthunt.com</li>
+<li>tmtpost.com</li>
+<li>36kr.com</li>
+<li>infoQ</li>
+<li>brutalist.report/topic/tech</li>
+<li>grafdom.com/blog/top-20-best-tech-websites-and-blogs</li>
+<li>spectrum.ieee.oeg/tpoic</li>
+</ul>
+<h2 id="debug">debug</h2>
+<ul>
+<li>github yuanzhoulvpi2017/vscode_debug_transformers</li>
+<li>zhaochenyang20/Awesome-ML-SYS-Tutorial</li>
+<li>medium optimizing llm serving speed with sglang optuna hydra</li>
+</ul>
+<h2 id="zhihu">zhihu</h2>
+<ul>
+<li>DefTruth</li>
+<li>BBuf</li>
+<li>进击的Bruce</li>
+</ul>]]></description></item></channel></rss>
