@@ -1,6 +1,25 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Git - 标签 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/tags/git/</link><description>Git - 标签 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Mar 2026 07:01:59 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/tags/git/" rel="self" type="application/rss+xml"/><item><title>git</title><link>https://blog.chsole.eu.org/posts/%E5%AD%A6%E4%B9%A0/git/</link><pubDate>Fri, 27 Mar 2026 07:01:59 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E5%AD%A6%E4%B9%A0/git/</guid><description><![CDATA[<p>#git #自定义域名</p>
-<h1 id="配置git">配置git</h1>
-<p><strong>1、创建 git 仓库</strong>
-</p>
-<p><strong>2、绑定自定义域名（使用 <code>custom.com</code>）</strong></p>
-<p>如果您希望使用第三方购买的域名（如 <code>example.com</code>），而非 <code>github.io</code> 域名：</p>]]></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on CH-Tiger's Note</title><link>https://blog.chsole.eu.org/tags/git/</link><description>Recent content in Git on CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Mar 2026 12:39:04 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>git</title><link>https://blog.chsole.eu.org/post/%E5%AD%A6%E4%B9%A0/git/</link><pubDate>Fri, 27 Mar 2026 12:39:04 +0800</pubDate><guid>https://blog.chsole.eu.org/post/%E5%AD%A6%E4%B9%A0/git/</guid><description>&lt;p&gt;#git #自定义域名&lt;/p&gt;
+&lt;h1 id="配置git"&gt;配置git
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;1、创建 git 仓库&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2、绑定自定义域名（使用 &lt;code&gt;custom.com&lt;/code&gt;）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果您希望使用第三方购买的域名（如 &lt;code&gt;example.com&lt;/code&gt;），而非 &lt;code&gt;github.io&lt;/code&gt; 域名：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;购买域名&lt;/strong&gt;：在域名注册商（如腾讯云、阿里云等）购买自己的域名。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置 DNS 解析&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在注册商处将域名通过 CNAME 记录指向 &lt;code&gt;username.github.io&lt;/code&gt;，或者使用 A 记录指向 GitHub 的 IP 地址（&lt;code&gt;185.199.108.153&lt;/code&gt; 等）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置 GitHub Pages&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;进入您的 GitHub 仓库，点击 &lt;strong&gt;Settings&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;在左侧导航栏，点击 &lt;strong&gt;Pages&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;在 &lt;strong&gt;Custom domain&lt;/strong&gt; 中输入您的自定义域名，点击 &lt;strong&gt;Save&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;验证&lt;/strong&gt;：页面上方会显示“Enforce HTTPS”，勾选以确保安全。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;3、配置gitee&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;参考：&lt;a class="link" href="https://sspai.com/post/97316" target="_blank" rel="noopener"
+ &gt;适合普通用户的简明Obsidian Git同步教程 - 少数派&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
