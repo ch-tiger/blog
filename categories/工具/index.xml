@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工具 - 分类 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/categories/%E5%B7%A5%E5%85%B7/</link><description>工具 - 分类 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 04 Apr 2026 15:44:57 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/categories/%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml"/><item><title>常用工具</title><link>https://blog.chsole.eu.org/posts/%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</link><pubDate>Sat, 04 Apr 2026 15:44:57 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</guid><description><![CDATA[<p>#工具</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工具 - 分类 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/categories/%E5%B7%A5%E5%85%B7/</link><description>工具 - 分类 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 04 Apr 2026 15:51:42 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/categories/%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml"/><item><title>常用工具</title><link>https://blog.chsole.eu.org/posts/%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</link><pubDate>Sat, 04 Apr 2026 15:51:42 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</guid><description><![CDATA[<p>#工具</p>
 <p>工具: <a href="https://mp.weixin.qq.com/s/esQxTGHEcAjnZMQTVbA5yg" target="_blank" rel="noopener noreffer ">https://mp.weixin.qq.com/s/esQxTGHEcAjnZMQTVbA5yg</a></p>
 <h2 id="终端工具">终端工具</h2>
 <ul>
@@ -12,6 +12,21 @@
 <ul>
 <li>oneTab</li>
 <li>Smart TOC</li>
+</ul>
+<h2 id="搜索引擎">搜索引擎</h2>
+<ul>
+<li>抖音: <a href="https://so.douyin.com/s?keyword=" target="_blank" rel="noopener noreffer ">https://so.douyin.com/s?keyword=</a></li>
+<li>百度</li>
+<li>谷歌:  <a href="http://www.google.com.hk/" target="_blank" rel="noopener noreffer ">http://www.google.com.hk/</a></li>
+<li>必应</li>
+<li>知乎</li>
+<li>csdn:  <a href="https://so.csdn.net/wap?q=" target="_blank" rel="noopener noreffer ">https://so.csdn.net/wap?q=</a></li>
+<li>bilibili</li>
+<li>youtube</li>
+<li>github</li>
+<li>gitee:  <a href="https://so.gitee.com/?q=" target="_blank" rel="noopener noreffer ">https://so.gitee.com/?q=</a></li>
+<li>weixin</li>
+<li></li>
 </ul>
 <h2 id="wiki">wiki</h2>
 <ul>
@@ -48,5 +63,11 @@
 </ul>
 <h2 id="skill">Skill</h2>
 <ul>
-<li>
-<p>Superpowers（120K星）让AI写代码先规划再编码；</p>]]></description></item></channel></rss>
+<li>Superpowers（120K星）让AI写代码先规划再编码；</li>
+<li>Everything Claude Code（110K星）提供28个专业Agent；</li>
+<li>DeerFlow实现AI真正干活；</li>
+<li>claude-code-best-practice</li>
+<li>代码知识图谱abhigyanpatwari/GitNexus</li>
+</ul>
+<h2 id="科学上网">科学上网</h2>
+<p>免费翻墙神器 Hiddify</p>]]></description></item></channel></rss>
