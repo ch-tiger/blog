@@ -1,21 +1,5 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/posts/</link><description>所有文章 | CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 18 Aug 2026 16:45:44 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/posts/" rel="self" type="application/rss+xml"/><item><title>git</title><link>https://blog.chsole.eu.org/posts/%E5%AD%A6%E4%B9%A0/git/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E5%AD%A6%E4%B9%A0/git/</guid><description><![CDATA[<p>#git #自定义域名</p>
-<h1 id="配置git">配置git</h1>
-<p><strong>1、创建 git 仓库</strong></p>
-<p></p>
-<p><strong>2、绑定自定义域名（使用 <code>custom.com</code>）</strong></p>
-<p>如果您希望使用第三方购买的域名（如 <code>example.com</code>），而非 <code>github.io</code> 域名：</p>]]></description></item><item><title>H20 vs Ascend NPU 精度比对工具集</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</guid><description><![CDATA[<p>针对 <strong>Qwen3.5-Flash（step3.5-flash）</strong> 模型、NPU 后端为 <strong>SGLang Ascend</strong>，</p>
-<p>完成&quot;冒烟 → 验收 → 定位&quot;三步联动的跨硬件精度比对。</p>]]></description></item><item><title>hexo</title><link>https://blog.chsole.eu.org/posts/%E5%AD%A6%E4%B9%A0/hexo/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E5%AD%A6%E4%B9%A0/hexo/</guid><description><![CDATA[<p>#hexo</p>
-<h1 id="下载安装包">下载安装包</h1>
-<h2 id="下载-git">下载 git</h2>
-<p><a href="https://github.com/git-for-windows/git/releases/download/v2.53.0.windows.2/Git-2.53.0.2-64-bit.exe" target="_blank" rel="noopener noreffer ">https://github.com/git-for-windows/git/releases/download/v2.53.0.windows.2/Git-2.53.0.2-64-bit.exe</a></p>
-<h2 id="下载-obsidian">下载 obsidian</h2>
-<p><a href="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/Obsidian-1.12.4.exe" target="_blank" rel="noopener noreffer ">https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/Obsidian-1.12.4.exe</a></p>
-<h2 id="下载-pandoc--文档格式转换">下载 pandoc | 文档格式转换</h2>
-<p><a href="https://github.com/jgm/pandoc/releases/download/3.9/pandoc-3.9-windows-x86_64.zip" target="_blank" rel="noopener noreffer ">https://github.com/jgm/pandoc/releases/download/3.9/pandoc-3.9-windows-x86_64.zip</a></p>]]></description></item><item><title>README.md</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</guid><description><![CDATA[<h3 id="readmemd-已重写为完整文档">README.md 已重写为完整文档</h3>
-<p>[README.md] 现包含六个部分：</p>
-<ol>
-<li>
-<p><strong>文件清单与作用</strong>：11 个文件逐一说明所属步骤和作用，附 3 个关键设计点的源码引用（<code>load_plugins()</code> 在 [scheduler.py:4181]、模型装配点 [model_runner.py:693]、NPU 标准参数来源 [gsm8k_ascend_mixin.py]）和判定阈值表。</p>]]></description></item><item><title>sgl-kernel 算子适配-2</title><link>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-2/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-2/</guid><description><![CDATA[<p>现在立即执行分析。我已经读取了大部分相关代码，下面是<strong>基于实际代码的精确修改方案</strong>：</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/posts/</link><description>所有文章 | CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 18 Aug 2026 16:50:49 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/posts/" rel="self" type="application/rss+xml"/><item><title>H20 vs Ascend NPU 精度比对工具集</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</guid><description><![CDATA[<p>针对 <strong>Qwen3.5-Flash（step3.5-flash）</strong> 模型、NPU 后端为 <strong>SGLang Ascend</strong>，</p>
+<p>完成&quot;冒烟 → 验收 → 定位&quot;三步联动的跨硬件精度比对。</p>]]></description></item><item><title>sgl-kernel 算子适配-2</title><link>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-2/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-2/</guid><description><![CDATA[<p>现在立即执行分析。我已经读取了大部分相关代码，下面是<strong>基于实际代码的精确修改方案</strong>：</p>
 <hr>
 <h2 id="1pythonsglangsrtutilspy-添加is_zpu">1️⃣ <code>python/sglang/srt/utils.py</code> — 添加 <code>is_zpu()</code></h2>
 <p>在第 134 行 <code>is_npu()</code> 之后添加：</p>
@@ -35,7 +19,7 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span></span></span></code></pre></div></div>
 <hr>
 <h2 id="2pythonsglangsrtlayersutilsmulti_platformpy-dispatch-路由">2️⃣ <code>python/sglang/srt/layers/utils/multi_platform.py</code> — dispatch 路由</h2>
-<p>在 <code>dispatch_forward()</code> 方法中（约第 131 行），<code>elif _is_musa</code> 之后添加 zpu 分支：</p>]]></description></item><item><title>测试 0-prompts.jsonl</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<p>在 <code>dispatch_forward()</code> 方法中（约第 131 行），<code>elif _is_musa</code> 之后添加 zpu 分支：</p>]]></description></item><item><title>测试 0-prompts.jsonl</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -78,7 +62,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;Write a bash one-liner to count lines containing &#39;error&#39; in a log file.&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;What is the difference between HTTP/1.1 and HTTP/2?&#34;</span><span class="p">}</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 1-gen_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;What is the difference between HTTP/1.1 and HTTP/2?&#34;</span><span class="p">}</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 1-gen_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -374,7 +358,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 10-pyproject.toml</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 10-pyproject.toml</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -391,7 +375,7 @@
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;msprobe_dump = sglang_msprobe_dump&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl"><span class="err">)</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 2-compare_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="err">)</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 2-compare_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -583,7 +567,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 3-_torch_compare.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</link><pubDate>Tue, 18 Aug 2026 16:45:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 3-_torch_compare.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -761,4 +745,403 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item></channel></rss>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 9-__init__.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;SGLang plugin that dumps per-layer forward tensors for cross-hardware
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">precision comparison (H20 vs Ascend NPU).
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">  
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Loaded via setuptools entry_points under group ``sglang.srt.plugins`` and
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">activated with ``SGLANG_PLUGINS=msprobe_dump``. Uses the official
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">``HookRegistry`` (see python/sglang/srt/plugins/hook_registry.py) to wrap
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">``ModelRunner.__init__`` with an AROUND hook. After the original __init__
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">returns (model loaded), the hook walks the decoder layers and registers
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">forward pre/post hooks on every submodule of interest. Dumped tensors go to
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">``$MSDUMP_DIR`` (one .pt per tensor + index.json), keyed by
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">``side_layer</span><span class="si">{idx:03d}</span><span class="s2">_</span><span class="si">{submodule}</span><span class="s2">_{input|output}`` where ``side`` is
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">``$MSDUMP_SIDE`` (e.g. &#34;h20&#34; or &#34;npu&#34;).
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">  
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">This is an ONLINE dump: it hooks the real server path (scheduler subprocess,
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">real attention backend, real KV cache), so what you compare is exactly what
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">the server computes. No separate offline Engine is constructed, avoiding
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">configuration drift between the dump run and the measured run.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">  
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Activation:
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    # package and install once (on both H20 and NPU hosts):
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    pip install -e .    # from this directory
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">  
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    # then launch the server with the plugin enabled:
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    SGLANG_PLUGINS=msprobe_dump </span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    MSDUMP_DIR=/data/dump_h20 </span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    MSDUMP_SIDE=h20 </span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    python -m sglang.launch_server --model-path ... --device cuda
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">  
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    # on NPU:
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    SGLANG_PLUGINS=msprobe_dump </span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    MSDUMP_DIR=/data/dump_npu </span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    MSDUMP_SIDE=npu </span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    python -m sglang.launch_server --model-path ... --device npu --attention-backend ascend
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sglang.srt.plugins.hook_registry</span> <span class="kn">import</span> <span class="n">HookRegistry</span><span class="p">,</span> <span class="n">HookType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step3p5DecoderLayer attributes (srt/models/step3p5.py); also covers Qwen3.5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># since the submodule names are shared. Extend for finer granularity.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">LAYER_SUBMODULES</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;self_attn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;moe&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;mlp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;share_expert&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;input_layernorm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;post_attention_layernorm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_to_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">_to_cpu</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">_to_cpu</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_find_decoder_layers</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Locate the decoder layer list, tolerant of nesting.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">&#34;model&#34;</span><span class="p">,</span> <span class="s2">&#34;layers&#34;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;model&#34;</span><span class="p">,</span> <span class="s2">&#34;model&#34;</span><span class="p">,</span> <span class="s2">&#34;layers&#34;</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">cur</span> <span class="o">=</span> <span class="n">model</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ok</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">cur</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">ok</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">ok</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="ow">and</span> <span class="n">cur</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># fallback: any *layers* list-like attribute</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s2">&#34;layer&#34;</span> <span class="ow">in</span> <span class="n">attr</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">v</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="ow">and</span> <span class="n">v</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_make_recorder</span><span class="p">(</span><span class="n">dump_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Build (pre_hook, post_hook) closures that dump to dump_dir.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">index</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_record</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">tensor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">dump_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.pt&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.pt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&#34;dump failed for </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">pre_hook</span><span class="p">(</span><span class="n">submodule</span><span class="p">,</span> <span class="n">layer_idx</span><span class="p">,</span> <span class="n">name_prefix</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">_h</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">tensor</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">args</span> <span class="k">else</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">_record</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">name_prefix</span><span class="si">}</span><span class="s2">_input&#34;</span><span class="p">,</span> <span class="n">_to_cpu</span><span class="p">(</span><span class="n">tensor</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">_h</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">post_hook</span><span class="p">(</span><span class="n">submodule</span><span class="p">,</span> <span class="n">layer_idx</span><span class="p">,</span> <span class="n">name_prefix</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">_h</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">_record</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">name_prefix</span><span class="si">}</span><span class="s2">_output&#34;</span><span class="p">,</span> <span class="n">_to_cpu</span><span class="p">(</span><span class="n">output</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">_h</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pre_hook</span><span class="p">,</span> <span class="n">post_hook</span><span class="p">,</span> <span class="n">index</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Module-level holder so the AROUND hook below can attach handles and write</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># the index file at shutdown.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">_STATE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;handles&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;index&#34;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&#34;dump_dir&#34;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_model_runner_init_around</span><span class="p">(</span><span class="n">original_fn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;AROUND hook on ModelRunner.__init__: run original, then attach hooks.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">original_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">runner</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">args</span> <span class="k">else</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dump_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;MSDUMP_DIR&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">side</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;MSDUMP_SIDE&#34;</span><span class="p">,</span> <span class="s2">&#34;side&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">dump_dir</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&#34;MSDUMP_DIR not set; msprobe_dump plugin is no-op&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">runner</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">runner</span><span class="p">,</span> <span class="s2">&#34;model&#34;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&#34;ModelRunner.model not available after __init__; skip dump&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dump_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dump_dir</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dump_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">layers</span> <span class="o">=</span> <span class="n">_find_decoder_layers</span><span class="p">(</span><span class="n">runner</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;msprobe_dump: side=</span><span class="si">%s</span><span class="s2"> layers=</span><span class="si">%d</span><span class="s2"> dump_dir=</span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">side</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">),</span> <span class="n">dump_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pre</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">_make_recorder</span><span class="p">(</span><span class="n">dump_path</span><span class="p">,</span> <span class="n">side</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">_STATE</span><span class="p">[</span><span class="s2">&#34;index&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">_STATE</span><span class="p">[</span><span class="s2">&#34;dump_dir&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dump_path</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">layers</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">LAYER_SUBMODULES</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">mod</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">sub</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">mod</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">name_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s2">_layer</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">sub</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">_STATE</span><span class="p">[</span><span class="s2">&#34;handles&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">mod</span><span class="o">.</span><span class="n">register_forward_pre_hook</span><span class="p">(</span><span class="n">pre</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">name_prefix</span><span class="p">),</span> <span class="n">with_kwargs</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">_STATE</span><span class="p">[</span><span class="s2">&#34;handles&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">mod</span><span class="o">.</span><span class="n">register_forward_hook</span><span class="p">(</span><span class="n">post</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">name_prefix</span><span class="p">),</span> <span class="n">with_kwargs</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># write index.json now so it exists even if the process is killed later.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">_write_index</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">atexit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">_write_index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_write_index</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dump_dir</span> <span class="o">=</span> <span class="n">_STATE</span><span class="p">[</span><span class="s2">&#34;dump_dir&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">dump_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="n">dump_dir</span> <span class="o">/</span> <span class="s2">&#34;index.json&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">_STATE</span><span class="p">[</span><span class="s2">&#34;index&#34;</span><span class="p">],</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&#34;write index.json failed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_register</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">HookRegistry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;sglang.srt.model_executor.model_runner.ModelRunner.__init__&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">_model_runner_init_around</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">HookType</span><span class="o">.</span><span class="n">AROUND</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;msprobe_dump plugin registered AROUND ModelRunner.__init__&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">_register</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>深入了解 torch_npu 如何完成模型迁移适配</title><link>https://blog.chsole.eu.org/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/</guid><description><![CDATA[<h2 id="torch_npu-适配深度分析">torch_npu 适配深度分析</h2>
+<p><code>torch_npu</code> 通过<strong>插件机制</strong>将华为昇腾 NPU 无缝接入原生 PyTorch，其核心思路是：<strong>利用 PyTorch 预留的 <code>PrivateUse1</code> 后端扩展点</strong>。以下是完整适配链路：</p>
+<hr>
+<h3 id="一架构总览">一、架构总览</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>PyTorch 原生                           torch_npu 插件
+┌─────────────────────┐     ┌──────────────────────────────────────┐
+│  torch.Tensor       │ ──▶ │  生成 .npu() 方法                    │
+│  torch.nn.Module    │ ──▶ │  生成 .npu() 方法                    │
+│  torch.Storage      │ ──▶ │  生成 .npu() 方法                    │
+│  DeviceType::CUDA   │     │  DeviceType::PrivateUse1 → &#34;npu&#34;     │
+│  DispatchKey::CUDA  │ ──▶ │  DispatchKey::PrivateUse1            │
+│  CUDAGuardImpl      │ ──▶ │  NPUGuardImpl (C10_REGISTER)         │
+│  c10::Stream        │ ──▶ │  NPUStream                           │
+│  torch._C           │ ──▶ │  torch_npu._C (pybind扩展)           │
+│  torch.backends     │ ──▶ │  entry_points: torch.backends        │
+│  torch.cuda.*       │ ──▶ │  torch.npu.* (镜像API)               │
+│  torch.distributed  │ ──▶ │  HCCL backend (替代NCCL)             │
+│  torch.compile      │ ──▶ │  NPU Inductor backend                │
+│  torch.autograd     │ ──▶ │  autograd 算子注册                   │
+│  CANN               │     │  (CANN/ACL底层计算库)                 │
+└─────────────────────┘     └──────────────────────────────────────┘</code></pre></div>
+<hr>
+<h3 id="二关键适配机制按代码定位">二、关键适配机制（按代码定位）</h3>
+<h4 id="1-privateuse1-后端注册-最关键的钩子">1. 🔌 <strong>PrivateUse1 后端注册</strong> — 最关键的钩子</h4>
+<p>PyTorch 原生预留了 <code>c10::DeviceType::PrivateUse1</code> 作为第3方设备扩展点。<code>torch_npu</code> 在 C++ 编译期就静态注册：</p>]]></description></item><item><title>费曼12个问题</title><link>https://blog.chsole.eu.org/posts/%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC12%E4%B8%AA%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 18 Aug 2026 16:50:49 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC12%E4%B8%AA%E9%97%AE%E9%A2%98/</guid><description><![CDATA[<p>#认知 #学习</p>
+<p>费曼的12个问题，每次看到一些新信息的时候，都可以把信息存储整理到对应的问题中。</p>
+<p>问题分成三类：<br>
+1.你想达到的目标（比如理财、健康饮食等）<br>
+2.你想改进，但没有具体目标的事项（比如更加自信、更加高效、读更多书）<br>
+3.你想改变什么就先身体力行的去做什么（比如希望大家能更好的自我认知，那就先去提升自己的自我认知）</p>]]></description></item></channel></rss>
