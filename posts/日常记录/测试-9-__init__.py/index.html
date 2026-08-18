@@ -1,0 +1,375 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>测试 9-__init__.py - CH-Tiger's Note</title><meta name=Description content="This is my cool site"><meta property="og:url" content="https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/"><meta property="og:site_name" content="CH-Tiger's Note"><meta property="og:title" content="测试 9-__init__.py"><meta property="og:description" content='"""SGLang plugin that dumps per-layer forward tensors for cross-hardware precision comparison (H20 vs Ascend NPU). Loaded via setuptools entry_points under group ``sglang.srt.plugins`` and activated with ``SGLANG_PLUGINS=msprobe_dump``. Uses the official ``HookRegistry`` (see python/sglang/srt/plugins/hook_registry.py) to wrap ``ModelRunner.__init__`` with an AROUND hook. After the original __init__ returns (model loaded), the hook walks the decoder layers and registers forward pre/post hooks on every submodule of interest. Dumped tensors go to ``$MSDUMP_DIR`` (one .pt per tensor + index.json), keyed by ``side_layer{idx:03d}_{submodule}_{input|output}`` where ``side`` is ``$MSDUMP_SIDE`` (e.g. "h20" or "npu"). This is an ONLINE dump: it hooks the real server path (scheduler subprocess, real attention backend, real KV cache), so what you compare is exactly what the server computes. No separate offline Engine is constructed, avoiding configuration drift between the dump run and the measured run. Activation: # package and install once (on both H20 and NPU hosts): pip install -e . # from this directory # then launch the server with the plugin enabled: SGLANG_PLUGINS=msprobe_dump \ MSDUMP_DIR=/data/dump_h20 \ MSDUMP_SIDE=h20 \ python -m sglang.launch_server --model-path ... --device cuda # on NPU: SGLANG_PLUGINS=msprobe_dump \ MSDUMP_DIR=/data/dump_npu \ MSDUMP_SIDE=npu \ python -m sglang.launch_server --model-path ... --device npu --attention-backend ascend """ import json import logging import os from pathlib import Path from sglang.srt.plugins.hook_registry import HookRegistry, HookType logger = logging.getLogger(__name__) # Step3p5DecoderLayer attributes (srt/models/step3p5.py); also covers Qwen3.5 # since the submodule names are shared. Extend for finer granularity. LAYER_SUBMODULES = ( "self_attn", "moe", "mlp", "share_expert", "input_layernorm", "post_attention_layernorm", ) def _to_cpu(x): import torch if x is None: return None if isinstance(x, (tuple, list)): return [_to_cpu(t) for t in x] if isinstance(x, dict): return {k: _to_cpu(v) for k, v in x.items()} if torch.is_tensor(x): return x.detach().to("cpu", dtype=torch.float32).contiguous().clone() return x def _find_decoder_layers(model): """Locate the decoder layer list, tolerant of nesting.""" for path in (("model", "layers"), ("model", "model", "layers")): cur = model ok = True for attr in path: cur = getattr(cur, attr, None) if cur is None: ok = False break if ok and isinstance(cur, (list, tuple)) and cur: return list(cur) # fallback: any *layers* list-like attribute for attr in dir(model): if "layer" in attr.lower(): v = getattr(model, attr, None) if isinstance(v, (list, tuple)) and v: return list(v) return [] def _make_recorder(dump_dir: Path, side: str): """Build (pre_hook, post_hook) closures that dump to dump_dir.""" index = {} def _record(name, tensor): if tensor is None: return try: import torch torch.save(tensor, str(dump_dir / f"{name}.pt")) index[name] = f"{name}.pt" except Exception: # noqa: BLE001 logger.exception("dump failed for %s", name) def pre_hook(submodule, layer_idx, name_prefix): def _h(module, args, kwargs): tensor = args[0] if args else None _record(f"{name_prefix}_input", _to_cpu(tensor)) return _h def post_hook(submodule, layer_idx, name_prefix): def _h(module, args, kwargs, output): _record(f"{name_prefix}_output", _to_cpu(output)) return _h return pre_hook, post_hook, index # Module-level holder so the AROUND hook below can attach handles and write # the index file at shutdown. _STATE = {"handles": [], "index": {}, "dump_dir": None} def _model_runner_init_around(original_fn, *args, **kwargs): """AROUND hook on ModelRunner.__init__: run original, then attach hooks.""" result = original_fn(*args, **kwargs) runner = args[0] if args else None dump_dir = os.environ.get("MSDUMP_DIR") side = os.environ.get("MSDUMP_SIDE", "side") if not dump_dir: logger.warning("MSDUMP_DIR not set; msprobe_dump plugin is no-op") return result if runner is None or getattr(runner, "model", None) is None: logger.warning("ModelRunner.model not available after __init__; skip dump") return result dump_path = Path(dump_dir) dump_path.mkdir(parents=True, exist_ok=True) layers = _find_decoder_layers(runner.model) logger.info("msprobe_dump: side=%s layers=%d dump_dir=%s", side, len(layers), dump_path) pre, post, index = _make_recorder(dump_path, side) _STATE["index"] = index _STATE["dump_dir"] = dump_path for i, layer in enumerate(layers): for sub in LAYER_SUBMODULES: mod = getattr(layer, sub, None) if mod is None: continue name_prefix = f"{side}_layer{i:03d}_{sub}" _STATE["handles"].append( mod.register_forward_pre_hook(pre(mod, i, name_prefix), with_kwargs=True)) _STATE["handles"].append( mod.register_forward_hook(post(mod, i, name_prefix), with_kwargs=True)) # write index.json now so it exists even if the process is killed later. _write_index() import atexit atexit.register(_write_index) return result def _write_index(): dump_dir = _STATE["dump_dir"] if dump_dir is None: return try: (dump_dir / "index.json").write_text( json.dumps(_STATE["index"], ensure_ascii=False, indent=2), encoding="utf-8") except Exception: # noqa: BLE001 logger.exception("write index.json failed") def _register(): HookRegistry.register( "sglang.srt.model_executor.model_runner.ModelRunner.__init__", _model_runner_init_around, HookType.AROUND, ) logger.info("msprobe_dump plugin registered AROUND ModelRunner.__init__") _register()'><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-08-18T16:39:53+08:00"><meta property="article:modified_time" content="2026-08-18T16:39:53+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="测试 9-__init__.py"><meta name=twitter:description content='"""SGLang plugin that dumps per-layer forward tensors for cross-hardware precision comparison (H20 vs Ascend NPU). Loaded via setuptools entry_points under group ``sglang.srt.plugins`` and activated with ``SGLANG_PLUGINS=msprobe_dump``. Uses the official ``HookRegistry`` (see python/sglang/srt/plugins/hook_registry.py) to wrap ``ModelRunner.__init__`` with an AROUND hook. After the original __init__ returns (model loaded), the hook walks the decoder layers and registers forward pre/post hooks on every submodule of interest. Dumped tensors go to ``$MSDUMP_DIR`` (one .pt per tensor + index.json), keyed by ``side_layer{idx:03d}_{submodule}_{input|output}`` where ``side`` is ``$MSDUMP_SIDE`` (e.g. "h20" or "npu"). This is an ONLINE dump: it hooks the real server path (scheduler subprocess, real attention backend, real KV cache), so what you compare is exactly what the server computes. No separate offline Engine is constructed, avoiding configuration drift between the dump run and the measured run. Activation: # package and install once (on both H20 and NPU hosts): pip install -e . # from this directory # then launch the server with the plugin enabled: SGLANG_PLUGINS=msprobe_dump \ MSDUMP_DIR=/data/dump_h20 \ MSDUMP_SIDE=h20 \ python -m sglang.launch_server --model-path ... --device cuda # on NPU: SGLANG_PLUGINS=msprobe_dump \ MSDUMP_DIR=/data/dump_npu \ MSDUMP_SIDE=npu \ python -m sglang.launch_server --model-path ... --device npu --attention-backend ascend """ import json import logging import os from pathlib import Path from sglang.srt.plugins.hook_registry import HookRegistry, HookType logger = logging.getLogger(__name__) # Step3p5DecoderLayer attributes (srt/models/step3p5.py); also covers Qwen3.5 # since the submodule names are shared. Extend for finer granularity. LAYER_SUBMODULES = ( "self_attn", "moe", "mlp", "share_expert", "input_layernorm", "post_attention_layernorm", ) def _to_cpu(x): import torch if x is None: return None if isinstance(x, (tuple, list)): return [_to_cpu(t) for t in x] if isinstance(x, dict): return {k: _to_cpu(v) for k, v in x.items()} if torch.is_tensor(x): return x.detach().to("cpu", dtype=torch.float32).contiguous().clone() return x def _find_decoder_layers(model): """Locate the decoder layer list, tolerant of nesting.""" for path in (("model", "layers"), ("model", "model", "layers")): cur = model ok = True for attr in path: cur = getattr(cur, attr, None) if cur is None: ok = False break if ok and isinstance(cur, (list, tuple)) and cur: return list(cur) # fallback: any *layers* list-like attribute for attr in dir(model): if "layer" in attr.lower(): v = getattr(model, attr, None) if isinstance(v, (list, tuple)) and v: return list(v) return [] def _make_recorder(dump_dir: Path, side: str): """Build (pre_hook, post_hook) closures that dump to dump_dir.""" index = {} def _record(name, tensor): if tensor is None: return try: import torch torch.save(tensor, str(dump_dir / f"{name}.pt")) index[name] = f"{name}.pt" except Exception: # noqa: BLE001 logger.exception("dump failed for %s", name) def pre_hook(submodule, layer_idx, name_prefix): def _h(module, args, kwargs): tensor = args[0] if args else None _record(f"{name_prefix}_input", _to_cpu(tensor)) return _h def post_hook(submodule, layer_idx, name_prefix): def _h(module, args, kwargs, output): _record(f"{name_prefix}_output", _to_cpu(output)) return _h return pre_hook, post_hook, index # Module-level holder so the AROUND hook below can attach handles and write # the index file at shutdown. _STATE = {"handles": [], "index": {}, "dump_dir": None} def _model_runner_init_around(original_fn, *args, **kwargs): """AROUND hook on ModelRunner.__init__: run original, then attach hooks.""" result = original_fn(*args, **kwargs) runner = args[0] if args else None dump_dir = os.environ.get("MSDUMP_DIR") side = os.environ.get("MSDUMP_SIDE", "side") if not dump_dir: logger.warning("MSDUMP_DIR not set; msprobe_dump plugin is no-op") return result if runner is None or getattr(runner, "model", None) is None: logger.warning("ModelRunner.model not available after __init__; skip dump") return result dump_path = Path(dump_dir) dump_path.mkdir(parents=True, exist_ok=True) layers = _find_decoder_layers(runner.model) logger.info("msprobe_dump: side=%s layers=%d dump_dir=%s", side, len(layers), dump_path) pre, post, index = _make_recorder(dump_path, side) _STATE["index"] = index _STATE["dump_dir"] = dump_path for i, layer in enumerate(layers): for sub in LAYER_SUBMODULES: mod = getattr(layer, sub, None) if mod is None: continue name_prefix = f"{side}_layer{i:03d}_{sub}" _STATE["handles"].append( mod.register_forward_pre_hook(pre(mod, i, name_prefix), with_kwargs=True)) _STATE["handles"].append( mod.register_forward_hook(post(mod, i, name_prefix), with_kwargs=True)) # write index.json now so it exists even if the process is killed later. _write_index() import atexit atexit.register(_write_index) return result def _write_index(): dump_dir = _STATE["dump_dir"] if dump_dir is None: return try: (dump_dir / "index.json").write_text( json.dumps(_STATE["index"], ensure_ascii=False, indent=2), encoding="utf-8") except Exception: # noqa: BLE001 logger.exception("write index.json failed") def _register(): HookRegistry.register( "sglang.srt.model_executor.model_runner.ModelRunner.__init__", _model_runner_init_around, HookType.AROUND, ) logger.info("msprobe_dump plugin registered AROUND ModelRunner.__init__") _register()'><meta name=application-name content="My cool site"><meta name=apple-mobile-web-app-title content="My cool site"><meta name=referrer content="no-referrer"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/><link rel=prev href=https://blog.chsole.eu.org/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/><link rel=next href=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-8-lmeval_diff.py/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css></noscript><link rel=preload href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"测试 9-__init__.py","inLanguage":"zh-cn","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.chsole.eu.org\/posts\/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95\/%E6%B5%8B%E8%AF%95-9-__init__.py\/"},"genre":"posts","wordcount":642,"url":"https:\/\/blog.chsole.eu.org\/posts\/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95\/%E6%B5%8B%E8%AF%95-9-__init__.py\/","datePublished":"2026-08-18T16:39:53+08:00","dateModified":"2026-08-18T16:39:53+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"CH-Tiger"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>const query=window.matchMedia("(prefers-color-scheme: dark)");function applyTheme(){let e=window.localStorage?.getItem("theme")||"auto",t=e==="dark"||e==="auto"&&query.matches;document.body.setAttribute("theme",t?"dark":"light"),document.body.setAttribute("cfg-theme",e)}applyTheme(),query.addEventListener("change",applyTheme)</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="CH-Tiger's Note"><span class=header-title-pre><i class='fas fa-laptop-code'></i> </span><span id=id-1 class=typeit></span></a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class='fas fa-archive'></i> 文章 </a><a class=menu-item href=/tags/><i class='fas fa-tags'></i> 标签 </a><a class=menu-item href=/categories/><i class='fas fa-folder-open'></i> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-spin" aria-hidden=true></i>
+</span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="CH-Tiger's Note"><span class=header-title-pre><i class='fas fa-laptop-code'></i> </span><span id=id-2 class=typeit></span></a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title><i class='fas fa-archive'></i>文章</a><a class=menu-item href=/tags/ title><i class='fas fa-tags'></i>标签</a><a class=menu-item href=/categories/ title><i class='fas fa-folder-open'></i>分类</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">测试 9-__init__.py</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt" aria-hidden=true></i>&nbsp;<time datetime=2026-08-18>2026-08-18</time>&nbsp;<i class="fas fa-pencil-alt" aria-hidden=true></i>&nbsp;约 642 字&nbsp;
+<i class="far fa-clock" aria-hidden=true></i>&nbsp;预计阅读 2 分钟&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents></nav></div></div><div class=content id=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-python"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;SGLang plugin that dumps per-layer forward tensors for cross-hardware
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>precision comparison (H20 vs Ascend NPU).
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Loaded via setuptools entry_points under group ``sglang.srt.plugins`` and
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>activated with ``SGLANG_PLUGINS=msprobe_dump``. Uses the official
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``HookRegistry`` (see python/sglang/srt/plugins/hook_registry.py) to wrap
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``ModelRunner.__init__`` with an AROUND hook. After the original __init__
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>returns (model loaded), the hook walks the decoder layers and registers
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>forward pre/post hooks on every submodule of interest. Dumped tensors go to
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``$MSDUMP_DIR`` (one .pt per tensor + index.json), keyed by
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``side_layer</span><span class=si>{idx:03d}</span><span class=s2>_</span><span class=si>{submodule}</span><span class=s2>_{input|output}`` where ``side`` is
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``$MSDUMP_SIDE`` (e.g. &#34;h20&#34; or &#34;npu&#34;).
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>This is an ONLINE dump: it hooks the real server path (scheduler subprocess,
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>real attention backend, real KV cache), so what you compare is exactly what
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>the server computes. No separate offline Engine is constructed, avoiding
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>configuration drift between the dump run and the measured run.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Activation:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    # package and install once (on both H20 and NPU hosts):
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    pip install -e .    # from this directory
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    # then launch the server with the plugin enabled:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    SGLANG_PLUGINS=msprobe_dump </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_DIR=/data/dump_h20 </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_SIDE=h20 </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    python -m sglang.launch_server --model-path ... --device cuda
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    # on NPU:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    SGLANG_PLUGINS=msprobe_dump </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_DIR=/data/dump_npu </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_SIDE=npu </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    python -m sglang.launch_server --model-path ... --device npu --attention-backend ascend
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>json</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sglang.srt.plugins.hook_registry</span> <span class=kn>import</span> <span class=n>HookRegistry</span><span class=p>,</span> <span class=n>HookType</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>logger</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Step3p5DecoderLayer attributes (srt/models/step3p5.py); also covers Qwen3.5</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># since the submodule names are shared. Extend for finer granularity.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>LAYER_SUBMODULES</span> <span class=o>=</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;self_attn&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;moe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;mlp&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;share_expert&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;input_layernorm&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;post_attention_layernorm&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_to_cpu</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>x</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=p>(</span><span class=nb>tuple</span><span class=p>,</span> <span class=nb>list</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>[</span><span class=n>_to_cpu</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=k>for</span> <span class=n>t</span> <span class=ow>in</span> <span class=n>x</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=nb>dict</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>{</span><span class=n>k</span><span class=p>:</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>v</span><span class=p>)</span> <span class=k>for</span> <span class=n>k</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=n>x</span><span class=o>.</span><span class=n>items</span><span class=p>()}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>torch</span><span class=o>.</span><span class=n>is_tensor</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>x</span><span class=o>.</span><span class=n>detach</span><span class=p>()</span><span class=o>.</span><span class=n>to</span><span class=p>(</span><span class=s2>&#34;cpu&#34;</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=n>torch</span><span class=o>.</span><span class=n>float32</span><span class=p>)</span><span class=o>.</span><span class=n>contiguous</span><span class=p>()</span><span class=o>.</span><span class=n>clone</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_find_decoder_layers</span><span class=p>(</span><span class=n>model</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Locate the decoder layer list, tolerant of nesting.&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>path</span> <span class=ow>in</span> <span class=p>((</span><span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;layers&#34;</span><span class=p>),</span> <span class=p>(</span><span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;layers&#34;</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>cur</span> <span class=o>=</span> <span class=n>model</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>ok</span> <span class=o>=</span> <span class=kc>True</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>attr</span> <span class=ow>in</span> <span class=n>path</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>cur</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>attr</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>cur</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>ok</span> <span class=o>=</span> <span class=kc>False</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>ok</span> <span class=ow>and</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=p>(</span><span class=nb>list</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>))</span> <span class=ow>and</span> <span class=n>cur</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nb>list</span><span class=p>(</span><span class=n>cur</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># fallback: any *layers* list-like attribute</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>attr</span> <span class=ow>in</span> <span class=nb>dir</span><span class=p>(</span><span class=n>model</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=s2>&#34;layer&#34;</span> <span class=ow>in</span> <span class=n>attr</span><span class=o>.</span><span class=n>lower</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>v</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>attr</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=p>(</span><span class=nb>list</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>))</span> <span class=ow>and</span> <span class=n>v</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=nb>list</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_make_recorder</span><span class=p>(</span><span class=n>dump_dir</span><span class=p>:</span> <span class=n>Path</span><span class=p>,</span> <span class=n>side</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Build (pre_hook, post_hook) closures that dump to dump_dir.&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>index</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_record</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>tensor</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>tensor</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>return</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>torch</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=n>tensor</span><span class=p>,</span> <span class=nb>str</span><span class=p>(</span><span class=n>dump_dir</span> <span class=o>/</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name</span><span class=si>}</span><span class=s2>.pt&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>index</span><span class=p>[</span><span class=n>name</span><span class=p>]</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name</span><span class=si>}</span><span class=s2>.pt&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=ne>Exception</span><span class=p>:</span>  <span class=c1># noqa: BLE001</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>logger</span><span class=o>.</span><span class=n>exception</span><span class=p>(</span><span class=s2>&#34;dump failed for </span><span class=si>%s</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>pre_hook</span><span class=p>(</span><span class=n>submodule</span><span class=p>,</span> <span class=n>layer_idx</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>_h</span><span class=p>(</span><span class=n>module</span><span class=p>,</span> <span class=n>args</span><span class=p>,</span> <span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>tensor</span> <span class=o>=</span> <span class=n>args</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=k>if</span> <span class=n>args</span> <span class=k>else</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>_record</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name_prefix</span><span class=si>}</span><span class=s2>_input&#34;</span><span class=p>,</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>tensor</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>_h</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>post_hook</span><span class=p>(</span><span class=n>submodule</span><span class=p>,</span> <span class=n>layer_idx</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>_h</span><span class=p>(</span><span class=n>module</span><span class=p>,</span> <span class=n>args</span><span class=p>,</span> <span class=n>kwargs</span><span class=p>,</span> <span class=n>output</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>_record</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name_prefix</span><span class=si>}</span><span class=s2>_output&#34;</span><span class=p>,</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>output</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>_h</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>pre_hook</span><span class=p>,</span> <span class=n>post_hook</span><span class=p>,</span> <span class=n>index</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Module-level holder so the AROUND hook below can attach handles and write</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># the index file at shutdown.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>_STATE</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;handles&#34;</span><span class=p>:</span> <span class=p>[],</span> <span class=s2>&#34;index&#34;</span><span class=p>:</span> <span class=p>{},</span> <span class=s2>&#34;dump_dir&#34;</span><span class=p>:</span> <span class=kc>None</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_model_runner_init_around</span><span class=p>(</span><span class=n>original_fn</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;AROUND hook on ModelRunner.__init__: run original, then attach hooks.&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=n>original_fn</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>runner</span> <span class=o>=</span> <span class=n>args</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=k>if</span> <span class=n>args</span> <span class=k>else</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>dump_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;MSDUMP_DIR&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>side</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;MSDUMP_SIDE&#34;</span><span class=p>,</span> <span class=s2>&#34;side&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>dump_dir</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s2>&#34;MSDUMP_DIR not set; msprobe_dump plugin is no-op&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>runner</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>or</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>runner</span><span class=p>,</span> <span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s2>&#34;ModelRunner.model not available after __init__; skip dump&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>dump_path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>dump_dir</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>dump_path</span><span class=o>.</span><span class=n>mkdir</span><span class=p>(</span><span class=n>parents</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>exist_ok</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>layers</span> <span class=o>=</span> <span class=n>_find_decoder_layers</span><span class=p>(</span><span class=n>runner</span><span class=o>.</span><span class=n>model</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&#34;msprobe_dump: side=</span><span class=si>%s</span><span class=s2> layers=</span><span class=si>%d</span><span class=s2> dump_dir=</span><span class=si>%s</span><span class=s2>&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>side</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>layers</span><span class=p>),</span> <span class=n>dump_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>pre</span><span class=p>,</span> <span class=n>post</span><span class=p>,</span> <span class=n>index</span> <span class=o>=</span> <span class=n>_make_recorder</span><span class=p>(</span><span class=n>dump_path</span><span class=p>,</span> <span class=n>side</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;index&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=n>index</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;dump_dir&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=n>dump_path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>layer</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>layers</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>sub</span> <span class=ow>in</span> <span class=n>LAYER_SUBMODULES</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>mod</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>layer</span><span class=p>,</span> <span class=n>sub</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>mod</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>name_prefix</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>side</span><span class=si>}</span><span class=s2>_layer</span><span class=si>{</span><span class=n>i</span><span class=si>:</span><span class=s2>03d</span><span class=si>}</span><span class=s2>_</span><span class=si>{</span><span class=n>sub</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;handles&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>mod</span><span class=o>.</span><span class=n>register_forward_pre_hook</span><span class=p>(</span><span class=n>pre</span><span class=p>(</span><span class=n>mod</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>),</span> <span class=n>with_kwargs</span><span class=o>=</span><span class=kc>True</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;handles&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>mod</span><span class=o>.</span><span class=n>register_forward_hook</span><span class=p>(</span><span class=n>post</span><span class=p>(</span><span class=n>mod</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>),</span> <span class=n>with_kwargs</span><span class=o>=</span><span class=kc>True</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># write index.json now so it exists even if the process is killed later.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>_write_index</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>import</span> <span class=nn>atexit</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>atexit</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=n>_write_index</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_write_index</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>dump_dir</span> <span class=o>=</span> <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;dump_dir&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>dump_dir</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=n>dump_dir</span> <span class=o>/</span> <span class=s2>&#34;index.json&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>write_text</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>json</span><span class=o>.</span><span class=n>dumps</span><span class=p>(</span><span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;index&#34;</span><span class=p>],</span> <span class=n>ensure_ascii</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=mi>2</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>except</span> <span class=ne>Exception</span><span class=p>:</span>  <span class=c1># noqa: BLE001</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>exception</span><span class=p>(</span><span class=s2>&#34;write index.json failed&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_register</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>HookRegistry</span><span class=o>.</span><span class=n>register</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;sglang.srt.model_executor.model_runner.ModelRunner.__init__&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>_model_runner_init_around</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>HookType</span><span class=o>.</span><span class=n>AROUND</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&#34;msprobe_dump plugin registered AROUND ModelRunner.__init__&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>_register</span><span class=p>()</span></span></span></code></pre></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2026-08-18</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 X" data-sharer=x data-url=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/ data-title="测试 9-__init__.py"><i class="fab fa-x-twitter" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Threads" data-sharer=threads data-url=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/ data-title="测试 9-__init__.py"><i class="fab fa-threads" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/><i class="fab fa-facebook-square" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/ data-title="测试 9-__init__.py"><i class="fab fa-hacker-news" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/ data-title="测试 9-__init__.py"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@16.9.0/icons/line.svg aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/ data-title="测试 9-__init__.py"><i class="fab fa-weibo" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Diaspora" data-sharer=diaspora data-url=https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/ data-title="测试 9-__init__.py" data-description><i class="fab fa-diaspora" aria-hidden=true></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.chsole.eu.org%2fposts%2f%25E6%2597%25A5%25E5%25B8%25B8%25E8%25AE%25B0%25E5%25BD%2595%2f%25E6%25B5%258B%25E8%25AF%2595-9-__init__.py%2f&amp;text=%e6%b5%8b%e8%af%95%209-__init__.py" target=_blank title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/ class=prev rel=prev title="深入了解 torch_npu 如何完成模型迁移适配"><i class="fas fa-angle-left" aria-hidden=true></i>深入了解 torch_npu 如何完成模型迁移适配</a>
+<a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-8-lmeval_diff.py/ class=next rel=next title="测试 8-lmeval_diff.py">测试 8-lmeval_diff.py<i class="fas fa-angle-right" aria-hidden=true></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.165.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/ch-tiger target=_blank>CH-Tiger</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script src=/lib/lunr/lunr.stemmer.support.min.js></script><script src=/lib/lunr/lunr.zh.min.js></script><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script src=https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js></script><script>window.config={comment:{},data:{"id-1":"CH-Tiger's Note","id-2":"CH-Tiger's Note"},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:30,type:"lunr"},typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"],"id-2":["id-2"]},duration:-1,speed:100}}</script><script src=/js/theme.js></script></body></html>
