@@ -1,9 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>日常记录 - 分类 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/</link><description>日常记录 - 分类 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 18 Aug 2026 16:55:54 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>H20 vs Ascend NPU 精度比对工具集</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</guid><description><![CDATA[<p>针对 <strong>Qwen3.5-Flash（step3.5-flash）</strong> 模型、NPU 后端为 <strong>SGLang Ascend</strong>，</p>
-<p>完成&quot;冒烟 → 验收 → 定位&quot;三步联动的跨硬件精度比对。</p>]]></description></item><item><title>README.md</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</guid><description><![CDATA[<h3 id="readmemd-已重写为完整文档">README.md 已重写为完整文档</h3>
-<p>[README.md] 现包含六个部分：</p>
-<ol>
-<li>
-<p><strong>文件清单与作用</strong>：11 个文件逐一说明所属步骤和作用，附 3 个关键设计点的源码引用（<code>load_plugins()</code> 在 [scheduler.py:4181]、模型装配点 [model_runner.py:693]、NPU 标准参数来源 [gsm8k_ascend_mixin.py]）和判定阈值表。</p>]]></description></item><item><title>测试 0-prompts.jsonl</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>日常记录 - 分类 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/</link><description>日常记录 - 分类 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 18 Aug 2026 16:56:22 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>测试 0-prompts.jsonl</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</link><pubDate>Tue, 18 Aug 2026 16:56:22 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -46,7 +41,204 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;Write a bash one-liner to count lines containing &#39;error&#39; in a log file.&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;What is the difference between HTTP/1.1 and HTTP/2?&#34;</span><span class="p">}</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 1-gen_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;What is the difference between HTTP/1.1 and HTTP/2?&#34;</span><span class="p">}</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 2-compare_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</link><pubDate>Tue, 18 Aug 2026 16:56:22 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;Compare two output files produced by gen_outputs.py.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">  
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Reports token-level match rate and text-level similarity, then writes a JSON
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">report with per-sample stats and the worst-diverging prompts.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">argparse</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">difflib</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">statistics</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">token_match_rate</span><span class="p">(</span><span class="n">ids_a</span><span class="p">,</span> <span class="n">ids_b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ids_a</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">ids_b</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">hit</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">ids_a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">ids_b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">hit</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">text_similarity</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">difflib</span><span class="o">.</span><span class="n">SequenceMatcher</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">ratio</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ap</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;--baseline&#34;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;--target&#34;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;--out&#34;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&#34;compare_report.json&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">args</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">base</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">baseline</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">tgt</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tgt</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&#34;count mismatch: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">base</span><span class="p">)</span><span class="si">}</span><span class="s2"> vs </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tgt</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">tgt</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">a</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">],</span> <span class="sa">f</span><span class="s2">&#34;id mismatch: </span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> vs </span><span class="si">{</span><span class="n">b</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">tm</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">token_match_rate</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&#34;output_ids&#34;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s2">&#34;output_ids&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ts</span> <span class="o">=</span> <span class="n">text_similarity</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&#34;output_text&#34;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s2">&#34;output_text&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;len_base&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&#34;output_ids&#34;</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;len_target&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="s2">&#34;output_ids&#34;</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;token_match_rate&#34;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">tm</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;text_similarity&#34;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">avg_tm</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&#34;token_match_rate&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">avg_ts</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&#34;text_similarity&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">len_base</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&#34;len_base&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">len_target</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&#34;len_target&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">len_ratio</span> <span class="o">=</span> <span class="n">len_target</span> <span class="o">/</span> <span class="n">len_base</span> <span class="k">if</span> <span class="n">len_base</span> <span class="k">else</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">=== Summary (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="si">}</span><span class="s2"> samples) ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;avg token match rate : </span><span class="si">{</span><span class="n">avg_tm</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;avg text similarity  : </span><span class="si">{</span><span class="n">avg_ts</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;avg len baseline     : </span><span class="si">{</span><span class="n">len_base</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;avg len target       : </span><span class="si">{</span><span class="n">len_target</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">  (ratio </span><span class="si">{</span><span class="n">len_ratio</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">worst</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s2">&#34;text_similarity&#34;</span><span class="p">])[:</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">worst 5 samples:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">worst</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  id=</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;3</span><span class="si">}</span><span class="s2">  tok_match=</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;token_match_rate&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  &#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="sa">f</span><span class="s2">&#34;text_sim=</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;text_similarity&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  &#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="sa">f</span><span class="s2">&#34;len </span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;len_base&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;len_target&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># verdict per H20-vs-NPU experience thresholds</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ok_tm</span> <span class="o">=</span> <span class="n">avg_tm</span> <span class="o">&gt;</span> <span class="mf">0.85</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ok_ts</span> <span class="o">=</span> <span class="n">avg_ts</span> <span class="o">&gt;</span> <span class="mf">0.92</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ok_len</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">&lt;=</span> <span class="n">len_ratio</span> <span class="o">&lt;=</span> <span class="mf">1.1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">=== Verdict (H20 vs NPU thresholds) ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  token match &gt; 0.85 : </span><span class="si">{</span><span class="n">ok_tm</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  text sim    &gt; 0.92 : </span><span class="si">{</span><span class="n">ok_ts</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  len ratio in [0.9,1.1] : </span><span class="si">{</span><span class="n">ok_len</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  overall: </span><span class="si">{</span><span class="s1">&#39;PASS -&gt; proceed to lm_eval&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">ok_tm</span> <span class="ow">and</span> <span class="n">ok_ts</span> <span class="ow">and</span> <span class="n">ok_len</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;FAIL -&gt; run msprobe&#39;</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;summary&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;avg_token_match_rate&#34;</span><span class="p">:</span> <span class="n">avg_tm</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;avg_text_similarity&#34;</span><span class="p">:</span> <span class="n">avg_ts</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;avg_len_base&#34;</span><span class="p">:</span> <span class="n">len_base</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;avg_len_target&#34;</span><span class="p">:</span> <span class="n">len_target</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;len_ratio&#34;</span><span class="p">:</span> <span class="n">len_ratio</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;rows&#34;</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">report written to </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">out</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>H20 vs Ascend NPU 精度比对工具集</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</link><pubDate>Tue, 18 Aug 2026 16:56:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</guid><description><![CDATA[<p>针对 <strong>Qwen3.5-Flash（step3.5-flash）</strong> 模型、NPU 后端为 <strong>SGLang Ascend</strong>，</p>
+<p>完成&quot;冒烟 → 验收 → 定位&quot;三步联动的跨硬件精度比对。</p>]]></description></item><item><title>README.md</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</link><pubDate>Tue, 18 Aug 2026 16:56:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</guid><description><![CDATA[<h3 id="readmemd-已重写为完整文档">README.md 已重写为完整文档</h3>
+<p>[README.md] 现包含六个部分：</p>
+<ol>
+<li>
+<p><strong>文件清单与作用</strong>：11 个文件逐一说明所属步骤和作用，附 3 个关键设计点的源码引用（<code>load_plugins()</code> 在 [scheduler.py:4181]、模型装配点 [model_runner.py:693]、NPU 标准参数来源 [gsm8k_ascend_mixin.py]）和判定阈值表。</p>]]></description></item><item><title>测试 1-gen_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</link><pubDate>Tue, 18 Aug 2026 16:56:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -342,7 +534,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 10-pyproject.toml</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 10-pyproject.toml</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</link><pubDate>Tue, 18 Aug 2026 16:56:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -359,199 +551,7 @@
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;msprobe_dump = sglang_msprobe_dump&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl"><span class="err">)</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 2-compare_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
-    <div class="code-header language-python">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;Compare two output files produced by gen_outputs.py.
-</span></span></span><span class="line"><span class="cl"><span class="s2">
-</span></span></span><span class="line"><span class="cl"><span class="s2">  
-</span></span></span><span class="line"><span class="cl"><span class="s2">
-</span></span></span><span class="line"><span class="cl"><span class="s2">Reports token-level match rate and text-level similarity, then writes a JSON
-</span></span></span><span class="line"><span class="cl"><span class="s2">
-</span></span></span><span class="line"><span class="cl"><span class="s2">report with per-sample stats and the worst-diverging prompts.
-</span></span></span><span class="line"><span class="cl"><span class="s2">
-</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">argparse</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">difflib</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">statistics</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">token_match_rate</span><span class="p">(</span><span class="n">ids_a</span><span class="p">,</span> <span class="n">ids_b</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ids_a</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">ids_b</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">hit</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">ids_a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">ids_b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">hit</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">text_similarity</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">difflib</span><span class="o">.</span><span class="n">SequenceMatcher</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">ratio</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ap</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;--baseline&#34;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;--target&#34;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;--out&#34;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&#34;compare_report.json&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">args</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">base</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">baseline</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">tgt</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tgt</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&#34;count mismatch: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">base</span><span class="p">)</span><span class="si">}</span><span class="s2"> vs </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tgt</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">tgt</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">a</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">],</span> <span class="sa">f</span><span class="s2">&#34;id mismatch: </span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> vs </span><span class="si">{</span><span class="n">b</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">tm</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">token_match_rate</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&#34;output_ids&#34;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s2">&#34;output_ids&#34;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">ts</span> <span class="o">=</span> <span class="n">text_similarity</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&#34;output_text&#34;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s2">&#34;output_text&#34;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;len_base&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&#34;output_ids&#34;</span><span class="p">]),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;len_target&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="s2">&#34;output_ids&#34;</span><span class="p">]),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;token_match_rate&#34;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">tm</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;text_similarity&#34;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">avg_tm</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&#34;token_match_rate&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">avg_ts</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&#34;text_similarity&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">len_base</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&#34;len_base&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">len_target</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&#34;len_target&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">len_ratio</span> <span class="o">=</span> <span class="n">len_target</span> <span class="o">/</span> <span class="n">len_base</span> <span class="k">if</span> <span class="n">len_base</span> <span class="k">else</span> <span class="mf">0.0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">=== Summary (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="si">}</span><span class="s2"> samples) ===&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;avg token match rate : </span><span class="si">{</span><span class="n">avg_tm</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;avg text similarity  : </span><span class="si">{</span><span class="n">avg_ts</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;avg len baseline     : </span><span class="si">{</span><span class="n">len_base</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;avg len target       : </span><span class="si">{</span><span class="n">len_target</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">  (ratio </span><span class="si">{</span><span class="n">len_ratio</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">worst</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s2">&#34;text_similarity&#34;</span><span class="p">])[:</span><span class="mi">5</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">worst 5 samples:&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">worst</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  id=</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;3</span><span class="si">}</span><span class="s2">  tok_match=</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;token_match_rate&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  &#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">              <span class="sa">f</span><span class="s2">&#34;text_sim=</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;text_similarity&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  &#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">              <span class="sa">f</span><span class="s2">&#34;len </span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;len_base&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;len_target&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># verdict per H20-vs-NPU experience thresholds</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ok_tm</span> <span class="o">=</span> <span class="n">avg_tm</span> <span class="o">&gt;</span> <span class="mf">0.85</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ok_ts</span> <span class="o">=</span> <span class="n">avg_ts</span> <span class="o">&gt;</span> <span class="mf">0.92</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ok_len</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">&lt;=</span> <span class="n">len_ratio</span> <span class="o">&lt;=</span> <span class="mf">1.1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">=== Verdict (H20 vs NPU thresholds) ===&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  token match &gt; 0.85 : </span><span class="si">{</span><span class="n">ok_tm</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  text sim    &gt; 0.92 : </span><span class="si">{</span><span class="n">ok_ts</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  len ratio in [0.9,1.1] : </span><span class="si">{</span><span class="n">ok_len</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  overall: </span><span class="si">{</span><span class="s1">&#39;PASS -&gt; proceed to lm_eval&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">ok_tm</span> <span class="ow">and</span> <span class="n">ok_ts</span> <span class="ow">and</span> <span class="n">ok_len</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;FAIL -&gt; run msprobe&#39;</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;summary&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="s2">&#34;avg_token_match_rate&#34;</span><span class="p">:</span> <span class="n">avg_tm</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="s2">&#34;avg_text_similarity&#34;</span><span class="p">:</span> <span class="n">avg_ts</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="s2">&#34;avg_len_base&#34;</span><span class="p">:</span> <span class="n">len_base</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="s2">&#34;avg_len_target&#34;</span><span class="p">:</span> <span class="n">len_target</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="s2">&#34;len_ratio&#34;</span><span class="p">:</span> <span class="n">len_ratio</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;rows&#34;</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">report written to </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">out</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 3-_torch_compare.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="err">)</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 3-_torch_compare.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</link><pubDate>Tue, 18 Aug 2026 16:56:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -729,7 +729,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 4-run_smoke.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 4-run_smoke.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/</link><pubDate>Tue, 18 Aug 2026 16:56:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -868,7 +868,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] done: </span><span class="si">${</span><span class="nv">OUT</span><span class="si">}</span><span class="s2">&#34;</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 5-run_lmeval.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] done: </span><span class="si">${</span><span class="nv">OUT</span><span class="si">}</span><span class="s2">&#34;</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 5-run_lmeval.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/</link><pubDate>Tue, 18 Aug 2026 16:56:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -939,7 +939,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] done: </span><span class="si">${</span><span class="nv">OUT_DIR</span><span class="si">}</span><span class="s2">&#34;</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 6-run_msprobe_compare.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/</link><pubDate>Tue, 18 Aug 2026 16:55:54 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] done: </span><span class="si">${</span><span class="nv">OUT_DIR</span><span class="si">}</span><span class="s2">&#34;</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 6-run_msprobe_compare.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/</link><pubDate>Tue, 18 Aug 2026 16:56:21 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
