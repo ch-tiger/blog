@@ -7,4 +7,384 @@
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search" aria-hidden=true></i>
 </a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle" aria-hidden=true></i>
 </a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title><i class='fas fa-archive'></i>文章</a><a class=menu-item href=/tags/ title><i class='fas fa-tags'></i>标签</a><a class=menu-item href=/categories/ title><i class='fas fa-folder-open'></i>分类</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class="page home" data-home=posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=文章><img class=lazyload src=/svg/loading.min.svg data-src=https://www.svgrepo.com/show/232666/tiger.svg data-srcset="https://www.svgrepo.com/show/232666/tiger.svg, https://www.svgrepo.com/show/232666/tiger.svg 1.5x, https://www.svgrepo.com/show/232666/tiger.svg 2x" data-sizes=auto alt=https://www.svgrepo.com/show/232666/tiger.svg title=https://www.svgrepo.com/show/232666/tiger.svg></a></div><h1 class=home-title>CH-Tiger</h1><div class=home-subtitle><div id=id-3 class=typeit></div></div><div class=links></div></div><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC12%E4%B8%AA%E9%97%AE%E9%A2%98/>费曼12个问题</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%96%B9%E6%B3%95/><i class="far fa-folder" aria-hidden=true></i>方法</a></span></div><div class=content><p>#认知 #学习</p><p>费曼的12个问题，每次看到一些新信息的时候，都可以把信息存储整理到对应的问题中。</p><p>问题分成三类：<br>1.你想达到的目标（比如理财、健康饮食等）<br>2.你想改进，但没有具体目标的事项（比如更加自信、更加高效、读更多书）<br>3.你想改变什么就先身体力行的去做什么（比如希望大家能更好的自我认知，那就先去提升自己的自我认知）</p></div><div class=post-footer><a href=/posts/%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC12%E4%B8%AA%E9%97%AE%E9%A2%98/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/%E5%AD%A6%E4%B9%A0/>学习</a>,&nbsp;<a href=/tags/%E8%AE%A4%E7%9F%A5/>认知</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-1/>sgl-kernel 算子适配-1</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/><i class="far fa-folder" aria-hidden=true></i>未分类</a></span></div><div class=content><h2 id=关键要点回顾>关键要点回顾</h2><h3 id=你需要的全部修改按顺序>你需要的全部修改（按顺序）</h3><table><thead><tr><th>步骤</th><th>位置</th><th>内容</th><th>是否必须</th></tr></thead><tbody><tr><td>1️⃣</td><td><code>python/sglang/srt/utils/common.py</code></td><td>添加 <code>is_zpu()</code> 检测函数</td><td>✅ 必须</td></tr><tr><td>2️⃣</td><td><code>sgl-kernel/python/sgl_kernel/__init__.py</code></td><td>在加载 common_ops 前注册 <code>_register_privateuse1_backend("zpu")</code></td><td>✅ 必须</td></tr><tr><td>3️⃣</td><td><code>sgl-kernel/csrc/zpu/rmsnorm_zpu.cpp</code>（新增）</td><td>用你的 <code>zpu_ops</code> API 实现 rmsnorm 等算子</td><td>✅ 必须</td></tr><tr><td>4️⃣</td><td><code>sgl-kernel/csrc/zpu/zpu_extension.cc</code>（新增）</td><td><code>TORCH_LIBRARY_IMPL(sgl_kernel, PrivateUse1, m)</code> 注册</td><td>✅ 必须</td></tr><tr><td>5️⃣</td><td><code>sgl-kernel/CMakeLists.txt</code></td><td>将 zpu 源文件加入 SOURCES 列表</td><td>✅ 必须</td></tr><tr><td>6️⃣</td><td><code>python/sglang/srt/layers/layernorm.py</code></td><td>导入 sgl_kernel、添加 <code>forward_zpu()</code></td><td>✅ 必须</td></tr><tr><td>7️⃣</td><td><code>python/sglang/srt/layers/utils/multi_platform.py</code></td><td>在 <code>dispatch_forward()</code> 添加 zpu 分支</td><td>✅ 必须</td></tr><tr><td>8️⃣</td><td>你的插件包（或 sglang 代码内）</td><td>OOT 平台注册 ZPUSRTPlatform</td><td>⬜ 可选（先硬编码也行）</td></tr></tbody></table><h3 id=核心一句话>核心一句话</h3><blockquote><p><strong><code>torch._C._register_privateuse1_backend("zpu")</code> 不需要修改 PyTorch 源码。</strong> 它只是让 PyTorch 知道 &ldquo;zpu&rdquo; 等于 <code>PrivateUse1</code>，然后你的 <code>TORCH_LIBRARY_IMPL(sgl_kernel, PrivateUse1, m)</code> 在 common_ops.so 加载时自然生效。你的 <code>rmsnorm_zpu()</code> 函数内部直接调用 <code>zpu_ops</code> 的 native C API，不需要依赖 PyTorch 的基础算子栈。</p></div><div class=post-footer><a href=/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-1/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/include/>Include</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E5%88%86%E6%9E%90-npu-%E9%80%82%E9%85%8Dsglang%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/>分析 NPU 适配sglang源码实现</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/><i class="far fa-folder" aria-hidden=true></i>未分类</a></span></div><div class=content><h2 id=npuascend适配全面分析>NPU（Ascend）适配全面分析</h2><p>SGLang 的 NPU 适配是一个 <strong>分层替换 + 插件注册</strong> 的架构模式，没有对原有 GPU 代码进行大规模修改，而是通过 <strong>策略模式 + 装饰器注册 + 条件导入</strong> 在关键路径上插入 NPU 专属实现。下面从 5 个层次详细拆解。</p></div><div class=post-footer><a href=/posts/%E5%88%86%E6%9E%90-npu-%E9%80%82%E9%85%8Dsglang%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/l110/>L110</a>,&nbsp;<a href=/tags/l1112/>L1112</a>,&nbsp;<a href=/tags/l149/>L149</a>,&nbsp;<a href=/tags/l171/>L171</a>,&nbsp;<a href=/tags/l174/>L174</a>,&nbsp;<a href=/tags/l206/>L206</a>,&nbsp;<a href=/tags/l28/>L28</a>,&nbsp;<a href=/tags/l285/>L285</a>,&nbsp;<a href=/tags/l38/>L38</a>,&nbsp;<a href=/tags/l55/>L55</a>,&nbsp;<a href=/tags/l79/>L79</a>,&nbsp;<a href=/tags/l83/>L83</a></div></div></article><ul class=pagination><li class=page-item><span class=page-link><a href=/>1</a></span></li><li class=page-item><span class=page-link><a href=/page/2/>2</a></span></li><li class=page-item><span class=page-link><a href=/page/3/>3</a></span></li><li class="page-item active"><span class=page-link><a href=/page/4/>4</a></span></li></ul></div></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.165.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/ch-tiger target=_blank>CH-Tiger</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script src=/lib/lunr/lunr.stemmer.support.min.js></script><script src=/lib/lunr/lunr.zh.min.js></script><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script src=https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js></script><script>window.config={data:{"id-1":"CH-Tiger's Note","id-2":"CH-Tiger's Note","id-3":"🐯 记录技术，探索未知。"},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:30,type:"lunr"},typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},duration:-1,speed:100}}</script><script src=/js/theme.js></script></body></html>
+<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class="page home" data-home=posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=文章><img class=lazyload src=/svg/loading.min.svg data-src=https://www.svgrepo.com/show/232666/tiger.svg data-srcset="https://www.svgrepo.com/show/232666/tiger.svg, https://www.svgrepo.com/show/232666/tiger.svg 1.5x, https://www.svgrepo.com/show/232666/tiger.svg 2x" data-sizes=auto alt=https://www.svgrepo.com/show/232666/tiger.svg title=https://www.svgrepo.com/show/232666/tiger.svg></a></div><h1 class=home-title>CH-Tiger</h1><div class=home-subtitle><div id=id-3 class=typeit></div></div><div class=links></div></div><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/>测试 9-__init__.py</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-python"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;SGLang plugin that dumps per-layer forward tensors for cross-hardware
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>precision comparison (H20 vs Ascend NPU).
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Loaded via setuptools entry_points under group ``sglang.srt.plugins`` and
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>activated with ``SGLANG_PLUGINS=msprobe_dump``. Uses the official
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``HookRegistry`` (see python/sglang/srt/plugins/hook_registry.py) to wrap
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``ModelRunner.__init__`` with an AROUND hook. After the original __init__
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>returns (model loaded), the hook walks the decoder layers and registers
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>forward pre/post hooks on every submodule of interest. Dumped tensors go to
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``$MSDUMP_DIR`` (one .pt per tensor + index.json), keyed by
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``side_layer</span><span class=si>{idx:03d}</span><span class=s2>_</span><span class=si>{submodule}</span><span class=s2>_{input|output}`` where ``side`` is
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>``$MSDUMP_SIDE`` (e.g. &#34;h20&#34; or &#34;npu&#34;).
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>This is an ONLINE dump: it hooks the real server path (scheduler subprocess,
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>real attention backend, real KV cache), so what you compare is exactly what
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>the server computes. No separate offline Engine is constructed, avoiding
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>configuration drift between the dump run and the measured run.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Activation:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    # package and install once (on both H20 and NPU hosts):
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    pip install -e .    # from this directory
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    # then launch the server with the plugin enabled:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    SGLANG_PLUGINS=msprobe_dump </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_DIR=/data/dump_h20 </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_SIDE=h20 </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    python -m sglang.launch_server --model-path ... --device cuda
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    # on NPU:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    SGLANG_PLUGINS=msprobe_dump </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_DIR=/data/dump_npu </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_SIDE=npu </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    python -m sglang.launch_server --model-path ... --device npu --attention-backend ascend
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>json</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sglang.srt.plugins.hook_registry</span> <span class=kn>import</span> <span class=n>HookRegistry</span><span class=p>,</span> <span class=n>HookType</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>logger</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Step3p5DecoderLayer attributes (srt/models/step3p5.py); also covers Qwen3.5</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># since the submodule names are shared. Extend for finer granularity.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>LAYER_SUBMODULES</span> <span class=o>=</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;self_attn&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;moe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;mlp&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;share_expert&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;input_layernorm&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;post_attention_layernorm&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_to_cpu</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>x</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=p>(</span><span class=nb>tuple</span><span class=p>,</span> <span class=nb>list</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>[</span><span class=n>_to_cpu</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=k>for</span> <span class=n>t</span> <span class=ow>in</span> <span class=n>x</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=nb>dict</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>{</span><span class=n>k</span><span class=p>:</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>v</span><span class=p>)</span> <span class=k>for</span> <span class=n>k</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=n>x</span><span class=o>.</span><span class=n>items</span><span class=p>()}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>torch</span><span class=o>.</span><span class=n>is_tensor</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>x</span><span class=o>.</span><span class=n>detach</span><span class=p>()</span><span class=o>.</span><span class=n>to</span><span class=p>(</span><span class=s2>&#34;cpu&#34;</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=n>torch</span><span class=o>.</span><span class=n>float32</span><span class=p>)</span><span class=o>.</span><span class=n>contiguous</span><span class=p>()</span><span class=o>.</span><span class=n>clone</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_find_decoder_layers</span><span class=p>(</span><span class=n>model</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Locate the decoder layer list, tolerant of nesting.&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>path</span> <span class=ow>in</span> <span class=p>((</span><span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;layers&#34;</span><span class=p>),</span> <span class=p>(</span><span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;layers&#34;</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>cur</span> <span class=o>=</span> <span class=n>model</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>ok</span> <span class=o>=</span> <span class=kc>True</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>attr</span> <span class=ow>in</span> <span class=n>path</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>cur</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>attr</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>cur</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>ok</span> <span class=o>=</span> <span class=kc>False</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>ok</span> <span class=ow>and</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=p>(</span><span class=nb>list</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>))</span> <span class=ow>and</span> <span class=n>cur</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nb>list</span><span class=p>(</span><span class=n>cur</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># fallback: any *layers* list-like attribute</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>attr</span> <span class=ow>in</span> <span class=nb>dir</span><span class=p>(</span><span class=n>model</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=s2>&#34;layer&#34;</span> <span class=ow>in</span> <span class=n>attr</span><span class=o>.</span><span class=n>lower</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>v</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>attr</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=p>(</span><span class=nb>list</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>))</span> <span class=ow>and</span> <span class=n>v</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=nb>list</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_make_recorder</span><span class=p>(</span><span class=n>dump_dir</span><span class=p>:</span> <span class=n>Path</span><span class=p>,</span> <span class=n>side</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Build (pre_hook, post_hook) closures that dump to dump_dir.&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>index</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_record</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>tensor</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>tensor</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>return</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>torch</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=n>tensor</span><span class=p>,</span> <span class=nb>str</span><span class=p>(</span><span class=n>dump_dir</span> <span class=o>/</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name</span><span class=si>}</span><span class=s2>.pt&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>index</span><span class=p>[</span><span class=n>name</span><span class=p>]</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name</span><span class=si>}</span><span class=s2>.pt&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=ne>Exception</span><span class=p>:</span>  <span class=c1># noqa: BLE001</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>logger</span><span class=o>.</span><span class=n>exception</span><span class=p>(</span><span class=s2>&#34;dump failed for </span><span class=si>%s</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>pre_hook</span><span class=p>(</span><span class=n>submodule</span><span class=p>,</span> <span class=n>layer_idx</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>_h</span><span class=p>(</span><span class=n>module</span><span class=p>,</span> <span class=n>args</span><span class=p>,</span> <span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>tensor</span> <span class=o>=</span> <span class=n>args</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=k>if</span> <span class=n>args</span> <span class=k>else</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>_record</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name_prefix</span><span class=si>}</span><span class=s2>_input&#34;</span><span class=p>,</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>tensor</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>_h</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>post_hook</span><span class=p>(</span><span class=n>submodule</span><span class=p>,</span> <span class=n>layer_idx</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>_h</span><span class=p>(</span><span class=n>module</span><span class=p>,</span> <span class=n>args</span><span class=p>,</span> <span class=n>kwargs</span><span class=p>,</span> <span class=n>output</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>_record</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name_prefix</span><span class=si>}</span><span class=s2>_output&#34;</span><span class=p>,</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>output</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>_h</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>pre_hook</span><span class=p>,</span> <span class=n>post_hook</span><span class=p>,</span> <span class=n>index</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Module-level holder so the AROUND hook below can attach handles and write</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># the index file at shutdown.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>_STATE</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;handles&#34;</span><span class=p>:</span> <span class=p>[],</span> <span class=s2>&#34;index&#34;</span><span class=p>:</span> <span class=p>{},</span> <span class=s2>&#34;dump_dir&#34;</span><span class=p>:</span> <span class=kc>None</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_model_runner_init_around</span><span class=p>(</span><span class=n>original_fn</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;AROUND hook on ModelRunner.__init__: run original, then attach hooks.&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=n>original_fn</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>runner</span> <span class=o>=</span> <span class=n>args</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=k>if</span> <span class=n>args</span> <span class=k>else</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>dump_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;MSDUMP_DIR&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>side</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;MSDUMP_SIDE&#34;</span><span class=p>,</span> <span class=s2>&#34;side&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>dump_dir</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s2>&#34;MSDUMP_DIR not set; msprobe_dump plugin is no-op&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>runner</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>or</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>runner</span><span class=p>,</span> <span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s2>&#34;ModelRunner.model not available after __init__; skip dump&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>dump_path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>dump_dir</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>dump_path</span><span class=o>.</span><span class=n>mkdir</span><span class=p>(</span><span class=n>parents</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>exist_ok</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>layers</span> <span class=o>=</span> <span class=n>_find_decoder_layers</span><span class=p>(</span><span class=n>runner</span><span class=o>.</span><span class=n>model</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&#34;msprobe_dump: side=</span><span class=si>%s</span><span class=s2> layers=</span><span class=si>%d</span><span class=s2> dump_dir=</span><span class=si>%s</span><span class=s2>&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>side</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>layers</span><span class=p>),</span> <span class=n>dump_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>pre</span><span class=p>,</span> <span class=n>post</span><span class=p>,</span> <span class=n>index</span> <span class=o>=</span> <span class=n>_make_recorder</span><span class=p>(</span><span class=n>dump_path</span><span class=p>,</span> <span class=n>side</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;index&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=n>index</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;dump_dir&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=n>dump_path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>layer</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>layers</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>sub</span> <span class=ow>in</span> <span class=n>LAYER_SUBMODULES</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>mod</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>layer</span><span class=p>,</span> <span class=n>sub</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>mod</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>name_prefix</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>side</span><span class=si>}</span><span class=s2>_layer</span><span class=si>{</span><span class=n>i</span><span class=si>:</span><span class=s2>03d</span><span class=si>}</span><span class=s2>_</span><span class=si>{</span><span class=n>sub</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;handles&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>mod</span><span class=o>.</span><span class=n>register_forward_pre_hook</span><span class=p>(</span><span class=n>pre</span><span class=p>(</span><span class=n>mod</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>),</span> <span class=n>with_kwargs</span><span class=o>=</span><span class=kc>True</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;handles&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>mod</span><span class=o>.</span><span class=n>register_forward_hook</span><span class=p>(</span><span class=n>post</span><span class=p>(</span><span class=n>mod</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>),</span> <span class=n>with_kwargs</span><span class=o>=</span><span class=kc>True</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># write index.json now so it exists even if the process is killed later.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>_write_index</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>import</span> <span class=nn>atexit</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>atexit</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=n>_write_index</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_write_index</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>dump_dir</span> <span class=o>=</span> <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;dump_dir&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>dump_dir</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=n>dump_dir</span> <span class=o>/</span> <span class=s2>&#34;index.json&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>write_text</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>json</span><span class=o>.</span><span class=n>dumps</span><span class=p>(</span><span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;index&#34;</span><span class=p>],</span> <span class=n>ensure_ascii</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=mi>2</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>except</span> <span class=ne>Exception</span><span class=p>:</span>  <span class=c1># noqa: BLE001</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>exception</span><span class=p>(</span><span class=s2>&#34;write index.json failed&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_register</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>HookRegistry</span><span class=o>.</span><span class=n>register</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;sglang.srt.model_executor.model_runner.ModelRunner.__init__&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>_model_runner_init_around</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>HookType</span><span class=o>.</span><span class=n>AROUND</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&#34;msprobe_dump plugin registered AROUND ModelRunner.__init__&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>_register</span><span class=p>()</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/>深入了解 torch_npu 如何完成模型迁移适配</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/><i class="far fa-folder" aria-hidden=true></i>未分类</a></span></div><div class=content><h2 id=torch_npu-适配深度分析>torch_npu 适配深度分析</h2><p><code>torch_npu</code> 通过<strong>插件机制</strong>将华为昇腾 NPU 无缝接入原生 PyTorch，其核心思路是：<strong>利用 PyTorch 预留的 <code>PrivateUse1</code> 后端扩展点</strong>。以下是完整适配链路：</p><hr><h3 id=一架构总览>一、架构总览</h3><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><pre tabindex=0><code>PyTorch 原生                           torch_npu 插件
+┌─────────────────────┐     ┌──────────────────────────────────────┐
+│  torch.Tensor       │ ──▶ │  生成 .npu() 方法                    │
+│  torch.nn.Module    │ ──▶ │  生成 .npu() 方法                    │
+│  torch.Storage      │ ──▶ │  生成 .npu() 方法                    │
+│  DeviceType::CUDA   │     │  DeviceType::PrivateUse1 → &#34;npu&#34;     │
+│  DispatchKey::CUDA  │ ──▶ │  DispatchKey::PrivateUse1            │
+│  CUDAGuardImpl      │ ──▶ │  NPUGuardImpl (C10_REGISTER)         │
+│  c10::Stream        │ ──▶ │  NPUStream                           │
+│  torch._C           │ ──▶ │  torch_npu._C (pybind扩展)           │
+│  torch.backends     │ ──▶ │  entry_points: torch.backends        │
+│  torch.cuda.*       │ ──▶ │  torch.npu.* (镜像API)               │
+│  torch.distributed  │ ──▶ │  HCCL backend (替代NCCL)             │
+│  torch.compile      │ ──▶ │  NPU Inductor backend                │
+│  torch.autograd     │ ──▶ │  autograd 算子注册                   │
+│  CANN               │     │  (CANN/ACL底层计算库)                 │
+└─────────────────────┘     └──────────────────────────────────────┘</code></pre></div><hr><h3 id=二关键适配机制按代码定位>二、关键适配机制（按代码定位）</h3><h4 id=1-privateuse1-后端注册-最关键的钩子>1. 🔌 <strong>PrivateUse1 后端注册</strong> — 最关键的钩子</h4><p>PyTorch 原生预留了 <code>c10::DeviceType::PrivateUse1</code> 作为第3方设备扩展点。<code>torch_npu</code> 在 C++ 编译期就静态注册：</p></div><div class=post-footer><a href=/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC12%E4%B8%AA%E9%97%AE%E9%A2%98/>费曼12个问题</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%96%B9%E6%B3%95/><i class="far fa-folder" aria-hidden=true></i>方法</a></span></div><div class=content><p>#认知 #学习</p><p>费曼的12个问题，每次看到一些新信息的时候，都可以把信息存储整理到对应的问题中。</p><p>问题分成三类：<br>1.你想达到的目标（比如理财、健康饮食等）<br>2.你想改进，但没有具体目标的事项（比如更加自信、更加高效、读更多书）<br>3.你想改变什么就先身体力行的去做什么（比如希望大家能更好的自我认知，那就先去提升自己的自我认知）</p></div><div class=post-footer><a href=/posts/%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC12%E4%B8%AA%E9%97%AE%E9%A2%98/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/%E5%AD%A6%E4%B9%A0/>学习</a>,&nbsp;<a href=/tags/%E8%AE%A4%E7%9F%A5/>认知</a></div></div></article><ul class=pagination><li class=page-item><span class=page-link><a href=/>1</a></span></li><li class=page-item><span class=page-link><a href=/page/2/>2</a></span></li><li class=page-item><span class=page-link><a href=/page/3/>3</a></span></li><li class="page-item active"><span class=page-link><a href=/page/4/>4</a></span></li></ul></div></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.165.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/ch-tiger target=_blank>CH-Tiger</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script src=/lib/lunr/lunr.stemmer.support.min.js></script><script src=/lib/lunr/lunr.zh.min.js></script><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script src=https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js></script><script>window.config={data:{"id-1":"CH-Tiger's Note","id-2":"CH-Tiger's Note","id-3":"🐯 记录技术，探索未知。"},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:30,type:"lunr"},typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},duration:-1,speed:100}}</script><script src=/js/theme.js></script></body></html>
