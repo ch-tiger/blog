@@ -7,7 +7,7 @@
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search" aria-hidden=true></i>
 </a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle" aria-hidden=true></i>
 </a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title><i class='fas fa-archive'></i>文章</a><a class=menu-item href=/tags/ title><i class='fas fa-tags'></i>标签</a><a class=menu-item href=/categories/ title><i class='fas fa-folder-open'></i>分类</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class="page home" data-home=posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=文章><img class=lazyload src=/svg/loading.min.svg data-src=https://www.svgrepo.com/show/232666/tiger.svg data-srcset="https://www.svgrepo.com/show/232666/tiger.svg, https://www.svgrepo.com/show/232666/tiger.svg 1.5x, https://www.svgrepo.com/show/232666/tiger.svg 2x" data-sizes=auto alt=https://www.svgrepo.com/show/232666/tiger.svg title=https://www.svgrepo.com/show/232666/tiger.svg></a></div><h1 class=home-title>CH-Tiger</h1><div class=home-subtitle><div id=id-3 class=typeit></div></div><div class=links></div></div><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/tensorboard-%E6%8C%87%E6%A0%87-grafana-%E5%B1%95%E7%A4%BA/>Tensorboard 指标 grafana 展示</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/><i class="far fa-folder" aria-hidden=true></i>未分类</a></span></div><div class=content><h2 id=问题一>问题一</h2><p>如果写一个 exporter, 用来解析 tensorboard 生成的 metrics文件在暴露给 Prometheus，不做侵入式修改，功能是否可行且一样？</p><p>可行，而且是一个很好的“零侵入”方案，但功能不完全一样。更准确地说：</p></div><div class=post-footer><a href=/posts/tensorboard-%E6%8C%87%E6%A0%87-grafana-%E5%B1%95%E7%A4%BA/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E5%88%86%E6%9E%90-npu-%E9%80%82%E9%85%8Dsglang%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/>分析 NPU 适配sglang源码实现</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/><i class="far fa-folder" aria-hidden=true></i>未分类</a></span></div><div class=content><h2 id=npuascend适配全面分析>NPU（Ascend）适配全面分析</h2><p>SGLang 的 NPU 适配是一个 <strong>分层替换 + 插件注册</strong> 的架构模式，没有对原有 GPU 代码进行大规模修改，而是通过 <strong>策略模式 + 装饰器注册 + 条件导入</strong> 在关键路径上插入 NPU 专属实现。下面从 5 个层次详细拆解。</p></div><div class=post-footer><a href=/posts/%E5%88%86%E6%9E%90-npu-%E9%80%82%E9%85%8Dsglang%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/l110/>L110</a>,&nbsp;<a href=/tags/l1112/>L1112</a>,&nbsp;<a href=/tags/l149/>L149</a>,&nbsp;<a href=/tags/l171/>L171</a>,&nbsp;<a href=/tags/l174/>L174</a>,&nbsp;<a href=/tags/l206/>L206</a>,&nbsp;<a href=/tags/l28/>L28</a>,&nbsp;<a href=/tags/l285/>L285</a>,&nbsp;<a href=/tags/l38/>L38</a>,&nbsp;<a href=/tags/l55/>L55</a>,&nbsp;<a href=/tags/l79/>L79</a>,&nbsp;<a href=/tags/l83/>L83</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/>测试 0-prompts.jsonl</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-json"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class="page home" data-home=posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=文章><img class=lazyload src=/svg/loading.min.svg data-src=https://www.svgrepo.com/show/232666/tiger.svg data-srcset="https://www.svgrepo.com/show/232666/tiger.svg, https://www.svgrepo.com/show/232666/tiger.svg 1.5x, https://www.svgrepo.com/show/232666/tiger.svg 2x" data-sizes=auto alt=https://www.svgrepo.com/show/232666/tiger.svg title=https://www.svgrepo.com/show/232666/tiger.svg></a></div><h1 class=home-title>CH-Tiger</h1><div class=home-subtitle><div id=id-3 class=typeit></div></div><div class=links></div></div><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/>测试 0-prompts.jsonl</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-json"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
 <span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
 <span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span><span class=nt>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;Explain the concept of gradient descent in machine learning.&#34;</span><span class=p>}</span>
 </span></span><span class=line><span class=cl>
@@ -543,4 +543,315 @@
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/>阅读全文</a></div></article><ul class=pagination><li class=page-item><span class=page-link><a href=/>1</a></span></li><li class="page-item active"><span class=page-link><a href=/page/2/>2</a></span></li><li class=page-item><span class=page-link><a href=/page/3/>3</a></span></li><li class=page-item><span class=page-link><a href=/page/4/>4</a></span></li></ul></div></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.165.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/ch-tiger target=_blank>CH-Tiger</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script src=/lib/lunr/lunr.stemmer.support.min.js></script><script src=/lib/lunr/lunr.zh.min.js></script><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script src=https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js></script><script>window.config={data:{"id-1":"CH-Tiger's Note","id-2":"CH-Tiger's Note","id-3":"🐯 记录技术，探索未知。"},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:30,type:"lunr"},typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},duration:-1,speed:100}}</script><script src=/js/theme.js></script></body></html>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/>测试 3-_torch_compare.py</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-python"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;Fallback per-tensor comparison used by run_msprobe_compare.sh.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Pairs tensors by their recorded name (which encodes side_layer_idx_submodule_kind)
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>and reports max_abs_diff / mean_abs_diff / cosine per pair, plus the first layer
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>where divergence exceeds a threshold. This mirrors what msprobe produces so the
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>report is useful even when the official tool isn&#39;t installed.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>argparse</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>json</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>cosine</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>fa</span> <span class=o>=</span> <span class=n>a</span><span class=o>.</span><span class=n>flatten</span><span class=p>()</span><span class=o>.</span><span class=n>float</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>fb</span> <span class=o>=</span> <span class=n>b</span><span class=o>.</span><span class=n>flatten</span><span class=p>()</span><span class=o>.</span><span class=n>float</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>denom</span> <span class=o>=</span> <span class=n>fa</span><span class=o>.</span><span class=n>norm</span><span class=p>()</span> <span class=o>*</span> <span class=n>fb</span><span class=o>.</span><span class=n>norm</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>denom</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=mf>1.0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span><span class=n>fa</span> <span class=o>@</span> <span class=n>fb</span> <span class=o>/</span> <span class=n>denom</span><span class=p>)</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span> <span class=o>=</span> <span class=n>argparse</span><span class=o>.</span><span class=n>ArgumentParser</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--h20&#34;</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--npu&#34;</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--out&#34;</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--threshold&#34;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>float</span><span class=p>,</span> <span class=n>default</span><span class=o>=</span><span class=mf>0.01</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                    <span class=n>help</span><span class=o>=</span><span class=s2>&#34;max_abs_diff above this marks a pair as DIVERGED&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>args</span> <span class=o>=</span> <span class=n>ap</span><span class=o>.</span><span class=n>parse_args</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>h_idx</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>((</span><span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>h20</span><span class=p>)</span> <span class=o>/</span> <span class=s2>&#34;index.json&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>read_text</span><span class=p>(</span><span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>n_idx</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>((</span><span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>npu</span><span class=p>)</span> <span class=o>/</span> <span class=s2>&#34;index.json&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>read_text</span><span class=p>(</span><span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Names differ only by side prefix; normalize by stripping &#34;h20_&#34;/&#34;npu_&#34;.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>norm</span><span class=p>(</span><span class=n>name</span><span class=p>):</span> <span class=k>return</span> <span class=n>name</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;_&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=p>)[</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>h_map</span> <span class=o>=</span> <span class=p>{</span><span class=n>norm</span><span class=p>(</span><span class=n>k</span><span class=p>):</span> <span class=n>k</span> <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=n>h_idx</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>n_map</span> <span class=o>=</span> <span class=p>{</span><span class=n>norm</span><span class=p>(</span><span class=n>k</span><span class=p>):</span> <span class=n>k</span> <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=n>n_idx</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>common</span> <span class=o>=</span> <span class=nb>sorted</span><span class=p>(</span><span class=nb>set</span><span class=p>(</span><span class=n>h_map</span><span class=p>)</span> <span class=o>&amp;</span> <span class=nb>set</span><span class=p>(</span><span class=n>n_map</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>rows</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>first_diverged</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>common</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>h_path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>h20</span><span class=p>)</span> <span class=o>/</span> <span class=n>h_idx</span><span class=p>[</span><span class=n>h_map</span><span class=p>[</span><span class=n>key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>n_path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>npu</span><span class=p>)</span> <span class=o>/</span> <span class=n>n_idx</span><span class=p>[</span><span class=n>n_map</span><span class=p>[</span><span class=n>key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=n>h_path</span><span class=o>.</span><span class=n>exists</span><span class=p>()</span> <span class=ow>or</span> <span class=ow>not</span> <span class=n>n_path</span><span class=o>.</span><span class=n>exists</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>a</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>h_path</span><span class=p>),</span> <span class=n>map_location</span><span class=o>=</span><span class=s2>&#34;cpu&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>b</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>n_path</span><span class=p>),</span> <span class=n>map_location</span><span class=o>=</span><span class=s2>&#34;cpu&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>torch</span><span class=o>.</span><span class=n>is_tensor</span><span class=p>(</span><span class=n>a</span><span class=p>)</span> <span class=ow>and</span> <span class=n>torch</span><span class=o>.</span><span class=n>is_tensor</span><span class=p>(</span><span class=n>b</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>a</span><span class=o>.</span><span class=n>shape</span> <span class=o>!=</span> <span class=n>b</span><span class=o>.</span><span class=n>shape</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>rows</span><span class=o>.</span><span class=n>append</span><span class=p>({</span><span class=s2>&#34;name&#34;</span><span class=p>:</span> <span class=n>key</span><span class=p>,</span> <span class=s2>&#34;status&#34;</span><span class=p>:</span> <span class=s2>&#34;SHAPE_MISMATCH&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                             <span class=s2>&#34;shape_a&#34;</span><span class=p>:</span> <span class=nb>list</span><span class=p>(</span><span class=n>a</span><span class=o>.</span><span class=n>shape</span><span class=p>),</span> <span class=s2>&#34;shape_b&#34;</span><span class=p>:</span> <span class=nb>list</span><span class=p>(</span><span class=n>b</span><span class=o>.</span><span class=n>shape</span><span class=p>)})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>diff</span> <span class=o>=</span> <span class=p>(</span><span class=n>a</span><span class=o>.</span><span class=n>float</span><span class=p>()</span> <span class=o>-</span> <span class=n>b</span><span class=o>.</span><span class=n>float</span><span class=p>())</span><span class=o>.</span><span class=n>abs</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>mad</span> <span class=o>=</span> <span class=n>diff</span><span class=o>.</span><span class=n>max</span><span class=p>()</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>mean</span> <span class=o>=</span> <span class=n>diff</span><span class=o>.</span><span class=n>mean</span><span class=p>()</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>cos</span> <span class=o>=</span> <span class=n>cosine</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>status</span> <span class=o>=</span> <span class=s2>&#34;DIVERGED&#34;</span> <span class=k>if</span> <span class=n>mad</span> <span class=o>&gt;</span> <span class=n>args</span><span class=o>.</span><span class=n>threshold</span> <span class=k>else</span> <span class=s2>&#34;ok&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>status</span> <span class=o>==</span> <span class=s2>&#34;DIVERGED&#34;</span> <span class=ow>and</span> <span class=n>first_diverged</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>first_diverged</span> <span class=o>=</span> <span class=n>key</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>rows</span><span class=o>.</span><span class=n>append</span><span class=p>({</span><span class=s2>&#34;name&#34;</span><span class=p>:</span> <span class=n>key</span><span class=p>,</span> <span class=s2>&#34;max_abs_diff&#34;</span><span class=p>:</span> <span class=n>mad</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                         <span class=s2>&#34;mean_abs_diff&#34;</span><span class=p>:</span> <span class=n>mean</span><span class=p>,</span> <span class=s2>&#34;cosine&#34;</span><span class=p>:</span> <span class=nb>round</span><span class=p>(</span><span class=n>cos</span><span class=p>,</span> <span class=mi>6</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                         <span class=s2>&#34;status&#34;</span><span class=p>:</span> <span class=n>status</span><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>rows</span><span class=o>.</span><span class=n>sort</span><span class=p>(</span><span class=n>key</span><span class=o>=</span><span class=k>lambda</span> <span class=n>r</span><span class=p>:</span> <span class=o>-</span><span class=n>r</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;max_abs_diff&#34;</span><span class=p>,</span> <span class=mi>0</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=se>\n</span><span class=si>{</span><span class=s1>&#39;name&#39;</span><span class=si>:</span><span class=s2>&lt;40</span><span class=si>}{</span><span class=s1>&#39;max_diff&#39;</span><span class=si>:</span><span class=s2>&gt;12</span><span class=si>}{</span><span class=s1>&#39;mean_diff&#39;</span><span class=si>:</span><span class=s2>&gt;12</span><span class=si>}{</span><span class=s1>&#39;cosine&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}</span><span class=s2>  status&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;-&#34;</span> <span class=o>*</span> <span class=mi>78</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>r</span> <span class=ow>in</span> <span class=n>rows</span><span class=p>[:</span><span class=mi>30</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>r</span><span class=p>[</span><span class=s2>&#34;status&#34;</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&#34;SHAPE_MISMATCH&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&lt;40</span><span class=si>}{</span><span class=s1>&#39;-&#39;</span><span class=si>:</span><span class=s2>&gt;12</span><span class=si>}{</span><span class=s1>&#39;-&#39;</span><span class=si>:</span><span class=s2>&gt;12</span><span class=si>}{</span><span class=s1>&#39;-&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}</span><span class=s2>  SHAPE_MISMATCH&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&lt;40</span><span class=si>}{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;max_abs_diff&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&gt;12.6f</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                  <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;mean_abs_diff&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&gt;12.6f</span><span class=si>}{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;cosine&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&gt;10.4f</span><span class=si>}</span><span class=s2>  </span><span class=si>{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;status&#39;</span><span class=p>]</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>n_div</span> <span class=o>=</span> <span class=nb>sum</span><span class=p>(</span><span class=mi>1</span> <span class=k>for</span> <span class=n>r</span> <span class=ow>in</span> <span class=n>rows</span> <span class=k>if</span> <span class=n>r</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;status&#34;</span><span class=p>)</span> <span class=o>==</span> <span class=s2>&#34;DIVERGED&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=se>\n</span><span class=si>{</span><span class=nb>len</span><span class=p>(</span><span class=n>rows</span><span class=p>)</span><span class=si>}</span><span class=s2> pairs, </span><span class=si>{</span><span class=n>n_div</span><span class=si>}</span><span class=s2> DIVERGED (threshold </span><span class=si>{</span><span class=n>args</span><span class=o>.</span><span class=n>threshold</span><span class=si>}</span><span class=s2>)&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>first_diverged</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;first diverged tensor: </span><span class=si>{</span><span class=n>first_diverged</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>out</span><span class=p>)</span><span class=o>.</span><span class=n>write_text</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>json</span><span class=o>.</span><span class=n>dumps</span><span class=p>({</span><span class=s2>&#34;rows&#34;</span><span class=p>:</span> <span class=n>rows</span><span class=p>,</span> <span class=s2>&#34;n_diverged&#34;</span><span class=p>:</span> <span class=n>n_div</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                    <span class=s2>&#34;first_diverged&#34;</span><span class=p>:</span> <span class=n>first_diverged</span><span class=p>},</span> <span class=n>ensure_ascii</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=mi>2</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;report written to </span><span class=si>{</span><span class=n>args</span><span class=o>.</span><span class=n>out</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/>测试 4-run_smoke.sh</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-bash"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/usr/bin/env bash
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Step A: smoke-test output comparison for H20 vs Ascend NPU.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   bash run_smoke.sh &lt;side&gt; &lt;model-path&gt; &lt;device&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#       side   : h20 | npu</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#       device : cuda | npu</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># On the npu side, run `source /usr/local/Ascend/ascend-toolkit/set_env.sh`</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># before invoking this script.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>set</span> -euo pipefail
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SIDE</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>1</span><span class=p>:?usage: run_smoke.sh &lt;h20|npu&gt; &lt;model-path&gt; &lt;cuda|npu&gt;</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>MODEL</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>2</span><span class=p>:?model path required</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>DEVICE</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>3</span><span class=p>:?device required: cuda|npu</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>PORT</span><span class=o>=</span><span class=m>30000</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>BASE_URL</span><span class=o>=</span><span class=s2>&#34;http://localhost:</span><span class=si>${</span><span class=nv>PORT</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SCRIPT_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span><span class=nb>cd</span> <span class=s2>&#34;</span><span class=k>$(</span>dirname <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASH_SOURCE</span><span class=p>[0]</span><span class=si>}</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2>&#34;</span> <span class=o>&amp;&amp;</span> <span class=nb>pwd</span><span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>OUT</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/outputs_</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>.jsonl&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>LOG</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/server_</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>.log&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ---- launch server ----------------------------------------------------------</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>COMMON_ARGS</span><span class=o>=(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --model-path <span class=s2>&#34;</span><span class=si>${</span><span class=nv>MODEL</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --port <span class=s2>&#34;</span><span class=si>${</span><span class=nv>PORT</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --dtype bfloat16
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --trust-remote-code
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --seed <span class=m>42</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --context-length <span class=m>4096</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --device <span class=s2>&#34;</span><span class=si>${</span><span class=nv>DEVICE</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>DEVICE</span><span class=si>}</span><span class=s2>&#34;</span> <span class=o>==</span> <span class=s2>&#34;npu&#34;</span> <span class=o>)</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Standard SGLang Ascend configuration (mirrors python/sglang/test/ascend/</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># gsm8k_ascend_mixin.py). Without --attention-backend ascend the NPU path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># is not exercised; --disable-cuda-graph avoids graph-capture issues on NPU.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>EXTRA</span><span class=o>=(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --attention-backend ascend
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --disable-cuda-graph
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --mem-fraction-static 0.8
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>export</span> <span class=nv>PYTORCH_NPU_ALLOC_CONF</span><span class=o>=</span>expandable_segments:True
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>export</span> <span class=nv>ASCEND_LAUNCH_BLOCKING</span><span class=o>=</span><span class=m>1</span>   <span class=c1># sync exec for reproducibility/debug</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>export</span> <span class=nv>TRANSFORMERS_VERBOSITY</span><span class=o>=</span>error
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>EXTRA</span><span class=o>=(</span> --mem-fraction-static 0.85 <span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] launching server: </span><span class=si>${</span><span class=nv>MODEL</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>nohup python -m sglang.launch_server <span class=s2>&#34;</span><span class=si>${</span><span class=nv>COMMON_ARGS</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>EXTRA</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    &gt; <span class=s2>&#34;</span><span class=si>${</span><span class=nv>LOG</span><span class=si>}</span><span class=s2>&#34;</span> 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SERVER_PID</span><span class=o>=</span><span class=nv>$!</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] server pid=</span><span class=si>${</span><span class=nv>SERVER_PID</span><span class=si>}</span><span class=s2>, log=</span><span class=si>${</span><span class=nv>LOG</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cleanup<span class=o>()</span> <span class=o>{</span> <span class=nb>kill</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SERVER_PID</span><span class=si>}</span><span class=s2>&#34;</span> 2&gt;/dev/null <span class=o>||</span> true<span class=p>;</span> <span class=nb>wait</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SERVER_PID</span><span class=si>}</span><span class=s2>&#34;</span> 2&gt;/dev/null <span class=o>||</span> true<span class=p>;</span> <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>trap</span> cleanup EXIT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ---- generate outputs -------------------------------------------------------</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] generating outputs -&gt; </span><span class=si>${</span><span class=nv>OUT</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>python <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/gen_outputs.py&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --base-url <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASE_URL</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --prompts <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/prompts.jsonl&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --output <span class=s2>&#34;</span><span class=si>${</span><span class=nv>OUT</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --max-new-tokens <span class=m>256</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --seed <span class=m>42</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --tokenizer <span class=s2>&#34;</span><span class=si>${</span><span class=nv>MODEL</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] done: </span><span class=si>${</span><span class=nv>OUT</span><span class=si>}</span><span class=s2>&#34;</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/>阅读全文</a></div></article><ul class=pagination><li class=page-item><span class=page-link><a href=/>1</a></span></li><li class="page-item active"><span class=page-link><a href=/page/2/>2</a></span></li><li class=page-item><span class=page-link><a href=/page/3/>3</a></span></li><li class=page-item><span class=page-link><a href=/page/4/>4</a></span></li></ul></div></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.165.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/ch-tiger target=_blank>CH-Tiger</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script src=/lib/lunr/lunr.stemmer.support.min.js></script><script src=/lib/lunr/lunr.zh.min.js></script><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script src=https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js></script><script>window.config={data:{"id-1":"CH-Tiger's Note","id-2":"CH-Tiger's Note","id-3":"🐯 记录技术，探索未知。"},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:30,type:"lunr"},typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},duration:-1,speed:100}}</script><script src=/js/theme.js></script></body></html>
