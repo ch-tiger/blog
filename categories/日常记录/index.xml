@@ -1,9 +1,9 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>日常记录 - 分类 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/</link><description>日常记录 - 分类 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 20 Aug 2026 15:46:38 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>H20 vs Ascend NPU 精度比对工具集</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</guid><description><![CDATA[<p>针对 <strong>Qwen3.5-Flash（step3.5-flash）</strong> 模型、NPU 后端为 <strong>SGLang Ascend</strong>，</p>
-<p>完成&quot;冒烟 → 验收 → 定位&quot;三步联动的跨硬件精度比对。</p>]]></description></item><item><title>README.md</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</guid><description><![CDATA[<h3 id="readmemd-已重写为完整文档">README.md 已重写为完整文档</h3>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>日常记录 - 分类 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/</link><description>日常记录 - 分类 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 20 Aug 2026 15:51:50 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>H20 vs Ascend NPU 精度比对工具集</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/h20-vs-ascend-npu-%E7%B2%BE%E5%BA%A6%E6%AF%94%E5%AF%B9%E5%B7%A5%E5%85%B7%E9%9B%86/</guid><description><![CDATA[<p>针对 <strong>Qwen3.5-Flash（step3.5-flash）</strong> 模型、NPU 后端为 <strong>SGLang Ascend</strong>，</p>
+<p>完成&quot;冒烟 → 验收 → 定位&quot;三步联动的跨硬件精度比对。</p>]]></description></item><item><title>README.md</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/readme.md/</guid><description><![CDATA[<h3 id="readmemd-已重写为完整文档">README.md 已重写为完整文档</h3>
 <p>[README.md] 现包含六个部分：</p>
 <ol>
 <li>
-<p><strong>文件清单与作用</strong>：11 个文件逐一说明所属步骤和作用，附 3 个关键设计点的源码引用（<code>load_plugins()</code> 在 [scheduler.py:4181]、模型装配点 [model_runner.py:693]、NPU 标准参数来源 [gsm8k_ascend_mixin.py]）和判定阈值表。</p>]]></description></item><item><title>测试 0-prompts.jsonl</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<p><strong>文件清单与作用</strong>：11 个文件逐一说明所属步骤和作用，附 3 个关键设计点的源码引用（<code>load_plugins()</code> 在 [scheduler.py:4181]、模型装配点 [model_runner.py:693]、NPU 标准参数来源 [gsm8k_ascend_mixin.py]）和判定阈值表。</p>]]></description></item><item><title>测试 0-prompts.jsonl</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-0-prompts.jsonl/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-json">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -46,7 +46,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;Write a bash one-liner to count lines containing &#39;error&#39; in a log file.&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;What is the difference between HTTP/1.1 and HTTP/2?&#34;</span><span class="p">}</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 1-gen_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;What is the difference between HTTP/1.1 and HTTP/2?&#34;</span><span class="p">}</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 1-gen_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-1-gen_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -342,7 +342,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 10-pyproject.toml</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 10-pyproject.toml</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-10-pyproject.toml/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -359,7 +359,7 @@
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;msprobe_dump = sglang_msprobe_dump&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl"><span class="err">)</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 2-compare_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="err">)</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 2-compare_outputs.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-2-compare_outputs.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -551,7 +551,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 3-_torch_compare.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 3-_torch_compare.py</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -729,146 +729,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 4-run_smoke.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
-    <div class="code-header language-bash">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Step A: smoke-test output comparison for H20 vs Ascend NPU.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#   bash run_smoke.sh &lt;side&gt; &lt;model-path&gt; &lt;device&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#       side   : h20 | npu</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#       device : cuda | npu</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># On the npu side, run `source /usr/local/Ascend/ascend-toolkit/set_env.sh`</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># before invoking this script.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">set</span> -euo pipefail
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">SIDE</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">1</span><span class="p">:?usage: run_smoke.sh &lt;h20|npu&gt; &lt;model-path&gt; &lt;cuda|npu&gt;</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">2</span><span class="p">:?model path required</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">3</span><span class="p">:?device required: cuda|npu</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">PORT</span><span class="o">=</span><span class="m">30000</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">BASE_URL</span><span class="o">=</span><span class="s2">&#34;http://localhost:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">SCRIPT_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span><span class="nb">cd</span> <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span><span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">OUT</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/outputs_</span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">.jsonl&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">LOG</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/server_</span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">.log&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># ---- launch server ----------------------------------------------------------</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">COMMON_ARGS</span><span class="o">=(</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --model-path <span class="s2">&#34;</span><span class="si">${</span><span class="nv">MODEL</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --port <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --dtype bfloat16
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --trust-remote-code
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --seed <span class="m">42</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --context-length <span class="m">4096</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --device <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;npu&#34;</span> <span class="o">)</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># Standard SGLang Ascend configuration (mirrors python/sglang/test/ascend/</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># gsm8k_ascend_mixin.py). Without --attention-backend ascend the NPU path</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># is not exercised; --disable-cuda-graph avoids graph-capture issues on NPU.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nv">EXTRA</span><span class="o">=(</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        --attention-backend ascend
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        --disable-cuda-graph
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        --mem-fraction-static 0.8
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">export</span> <span class="nv">PYTORCH_NPU_ALLOC_CONF</span><span class="o">=</span>expandable_segments:True
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">export</span> <span class="nv">ASCEND_LAUNCH_BLOCKING</span><span class="o">=</span><span class="m">1</span>   <span class="c1"># sync exec for reproducibility/debug</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">export</span> <span class="nv">TRANSFORMERS_VERBOSITY</span><span class="o">=</span>error
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">else</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nv">EXTRA</span><span class="o">=(</span> --mem-fraction-static 0.85 <span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] launching server: </span><span class="si">${</span><span class="nv">MODEL</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">nohup python -m sglang.launch_server <span class="s2">&#34;</span><span class="si">${</span><span class="nv">COMMON_ARGS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">EXTRA</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    &gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">LOG</span><span class="si">}</span><span class="s2">&#34;</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">SERVER_PID</span><span class="o">=</span><span class="nv">$!</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] server pid=</span><span class="si">${</span><span class="nv">SERVER_PID</span><span class="si">}</span><span class="s2">, log=</span><span class="si">${</span><span class="nv">LOG</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cleanup<span class="o">()</span> <span class="o">{</span> <span class="nb">kill</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SERVER_PID</span><span class="si">}</span><span class="s2">&#34;</span> 2&gt;/dev/null <span class="o">||</span> true<span class="p">;</span> <span class="nb">wait</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SERVER_PID</span><span class="si">}</span><span class="s2">&#34;</span> 2&gt;/dev/null <span class="o">||</span> true<span class="p">;</span> <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">trap</span> cleanup EXIT
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># ---- generate outputs -------------------------------------------------------</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] generating outputs -&gt; </span><span class="si">${</span><span class="nv">OUT</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">python <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/gen_outputs.py&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --base-url <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BASE_URL</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --prompts <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/prompts.jsonl&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --output <span class="s2">&#34;</span><span class="si">${</span><span class="nv">OUT</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --max-new-tokens <span class="m">256</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --seed <span class="m">42</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --tokenizer <span class="s2">&#34;</span><span class="si">${</span><span class="nv">MODEL</span><span class="si">}</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] done: </span><span class="si">${</span><span class="nv">OUT</span><span class="si">}</span><span class="s2">&#34;</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 5-run_lmeval.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 5-run_lmeval.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -939,7 +800,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] done: </span><span class="si">${</span><span class="nv">OUT_DIR</span><span class="si">}</span><span class="s2">&#34;</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 6-run_msprobe_compare.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/</link><pubDate>Thu, 20 Aug 2026 15:46:38 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] done: </span><span class="si">${</span><span class="nv">OUT_DIR</span><span class="si">}</span><span class="s2">&#34;</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 6-run_msprobe_compare.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -1002,4 +863,177 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">python <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/_torch_compare.py&#34;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    --h20 <span class="s2">&#34;</span><span class="si">${</span><span class="nv">H20_DIR</span><span class="si">}</span><span class="s2">&#34;</span> --npu <span class="s2">&#34;</span><span class="si">${</span><span class="nv">NPU_DIR</span><span class="si">}</span><span class="s2">&#34;</span> --out <span class="s2">&#34;</span><span class="si">${</span><span class="nv">OUT_DIR</span><span class="si">}</span><span class="s2">/torch_report.json&#34;</span></span></span></code></pre></div></div>]]></description></item></channel></rss>
+</span></span><span class="line"><span class="cl">    --h20 <span class="s2">&#34;</span><span class="si">${</span><span class="nv">H20_DIR</span><span class="si">}</span><span class="s2">&#34;</span> --npu <span class="s2">&#34;</span><span class="si">${</span><span class="nv">NPU_DIR</span><span class="si">}</span><span class="s2">&#34;</span> --out <span class="s2">&#34;</span><span class="si">${</span><span class="nv">OUT_DIR</span><span class="si">}</span><span class="s2">/torch_report.json&#34;</span></span></span></code></pre></div></div>]]></description></item><item><title>测试 7-run_all.sh</title><link>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-7-run_all.sh/</link><pubDate>Thu, 20 Aug 2026 15:51:50 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-7-run_all.sh/</guid><description><![CDATA[<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># One-shot entry: smoke -&gt; lm_eval -&gt; msprobe, for H20 vs Ascend NPU.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run on the H20 host and on the NPU host separately, then bring the output</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># files together for the diff steps. This script does NOT assume the two</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># hosts can reach each other; each side produces artifacts you copy over.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#   bash run_all.sh &lt;side&gt; &lt;model-path&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#       side: h20 | npu</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># On the NPU side, `source /usr/local/Ascend/ascend-toolkit/set_env.sh` first</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># and `pip install -e ./msprobe_dump_plugin` once.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -euo pipefail
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">SIDE</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">1</span><span class="p">:?usage: run_all.sh &lt;h20|npu&gt; &lt;model-path&gt;</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">2</span><span class="p">:?model path required</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">SCRIPT_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span><span class="nb">cd</span> <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">DEVICE</span><span class="o">=</span><span class="k">$(</span><span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$SIDE</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;npu&#34;</span> <span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> npu <span class="o">||</span> <span class="nb">echo</span> cuda<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">BASE_URL</span><span class="o">=</span><span class="s2">&#34;http://localhost:30000&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;==================== Step A: smoke (</span><span class="nv">$SIDE</span><span class="s2">) ====================&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bash <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/run_smoke.sh&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">MODEL</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># run_smoke.sh launches+generates+shutdowns; it leaves outputs_${SIDE}.jsonl</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;==================== Step B: lm_eval (</span><span class="nv">$SIDE</span><span class="s2">) ====================&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Re-launch the server in the background for lm_eval (Step B needs it up).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">COMMON</span><span class="o">=(</span> --model-path <span class="s2">&#34;</span><span class="si">${</span><span class="nv">MODEL</span><span class="si">}</span><span class="s2">&#34;</span> --port <span class="m">30000</span> --dtype bfloat16
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         --trust-remote-code --seed <span class="m">42</span> --context-length <span class="m">4096</span> --device <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;npu&#34;</span> <span class="o">)</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">EXTRA</span><span class="o">=(</span> --attention-backend ascend --disable-cuda-graph --mem-fraction-static 0.8 <span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">export</span> <span class="nv">PYTORCH_NPU_ALLOC_CONF</span><span class="o">=</span>expandable_segments:True
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">export</span> <span class="nv">ASCEND_LAUNCH_BLOCKING</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">EXTRA</span><span class="o">=(</span> --mem-fraction-static 0.85 <span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">nohup python -m sglang.launch_server <span class="s2">&#34;</span><span class="si">${</span><span class="nv">COMMON</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">EXTRA</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    &gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/server_</span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">_stepB.log&#34;</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">SRV</span><span class="o">=</span><span class="nv">$!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">trap</span> <span class="s1">&#39;kill $SRV 2&gt;/dev/null || true; wait $SRV 2&gt;/dev/null || true&#39;</span> EXIT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Warm up with a tiny request so the first lm_eval batch isn&#39;t cold.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/gen_outputs.py&#34;</span> --base-url <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BASE_URL</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    --prompts <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/prompts.jsonl&#34;</span> --output /tmp/_warmup_<span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span>.jsonl <span class="se">\
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    --max-new-tokens <span class="m">8</span> <span class="o">||</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bash <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/run_lmeval.sh&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BASE_URL</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;==================== Step C: msprobe online dump (</span><span class="nv">$SIDE</span><span class="s2">) ====================&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Requires the plugin installed: pip install -e &#34;${SCRIPT_DIR}/msprobe_dump_plugin&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">DUMP_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/dump_</span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">kill</span> <span class="nv">$SRV</span> 2&gt;/dev/null <span class="o">||</span> true<span class="p">;</span> <span class="nb">wait</span> <span class="nv">$SRV</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">trap</span> - EXIT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Re-launch with plugin enabled; it hooks ModelRunner.__init__ in-scheduler.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> ! python -c <span class="s2">&#34;import sglang_msprobe_dump&#34;</span> 2&gt;/dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;[!] sglang_msprobe_dump not installed; run: pip install -e </span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/msprobe_dump_plugin&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;    skipping Step C on </span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">SGLANG_PLUGINS</span><span class="o">=</span>msprobe_dump <span class="nv">MSDUMP_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">DUMP_DIR</span><span class="si">}</span><span class="s2">&#34;</span> <span class="nv">MSDUMP_SIDE</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        nohup python -m sglang.launch_server <span class="s2">&#34;</span><span class="si">${</span><span class="nv">COMMON</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">EXTRA</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        &gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/server_</span><span class="si">${</span><span class="nv">SIDE</span><span class="si">}</span><span class="s2">_stepC.log&#34;</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">SRV</span><span class="o">=</span><span class="nv">$!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">trap</span> <span class="s1">&#39;kill $SRV 2&gt;/dev/null || true; wait $SRV 2&gt;/dev/null || true&#39;</span> EXIT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># trigger one forward so hooks fire</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    python <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/gen_outputs.py&#34;</span> --base-url <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BASE_URL</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        --prompts <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/prompts.jsonl&#34;</span> --output /tmp/_dumptrigger.jsonl <span class="se">\
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        --max-new-tokens <span class="m">16</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">kill</span> <span class="nv">$SRV</span> 2&gt;/dev/null <span class="o">||</span> true<span class="p">;</span> <span class="nb">wait</span> <span class="nv">$SRV</span> 2&gt;/dev/null <span class="o">||</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">trap</span> - EXIT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;[</span><span class="nv">$SIDE</span><span class="s2">] dump -&gt; </span><span class="si">${</span><span class="nv">DUMP_DIR</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">==================== $SIDE done =====================
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">Artifacts (copy these to a single machine and diff):
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  Step A:  ${SCRIPT_DIR}/outputs_${SIDE}.jsonl
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  Step B:  ${SCRIPT_DIR}/results_${SIDE}/
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  Step C:  ${SCRIPT_DIR}/dump_${SIDE}/
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">After both sides finish, run on any host:
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  python compare_outputs.py --baseline outputs_h20.jsonl --target outputs_npu.jsonl
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  python lmeval_diff.py results_h20 results_npu
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  bash run_msprobe_compare.sh dump_h20 dump_npu msprobe_report
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span></span></span></code></pre></div></div>]]></description></item></channel></rss>
