@@ -7,384 +7,742 @@
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search" aria-hidden=true></i>
 </a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle" aria-hidden=true></i>
 </a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title><i class='fas fa-archive'></i>文章</a><a class=menu-item href=/tags/ title><i class='fas fa-tags'></i>标签</a><a class=menu-item href=/categories/ title><i class='fas fa-folder-open'></i>分类</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class="page home" data-home=posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=文章><img class=lazyload src=/svg/loading.min.svg data-src=https://www.svgrepo.com/show/232666/tiger.svg data-srcset="https://www.svgrepo.com/show/232666/tiger.svg, https://www.svgrepo.com/show/232666/tiger.svg 1.5x, https://www.svgrepo.com/show/232666/tiger.svg 2x" data-sizes=auto alt=https://www.svgrepo.com/show/232666/tiger.svg title=https://www.svgrepo.com/show/232666/tiger.svg></a></div><h1 class=home-title>CH-Tiger</h1><div class=home-subtitle><div id=id-3 class=typeit></div></div><div class=links></div></div><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/>测试 9-__init__.py</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-python"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class="page home" data-home=posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=文章><img class=lazyload src=/svg/loading.min.svg data-src=https://www.svgrepo.com/show/232666/tiger.svg data-srcset="https://www.svgrepo.com/show/232666/tiger.svg, https://www.svgrepo.com/show/232666/tiger.svg 1.5x, https://www.svgrepo.com/show/232666/tiger.svg 2x" data-sizes=auto alt=https://www.svgrepo.com/show/232666/tiger.svg title=https://www.svgrepo.com/show/232666/tiger.svg></a></div><h1 class=home-title>CH-Tiger</h1><div class=home-subtitle><div id=id-3 class=typeit></div></div><div class=links></div></div><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/>测试 3-_torch_compare.py</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-python"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
 <span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
-<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;SGLang plugin that dumps per-layer forward tensors for cross-hardware
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>precision comparison (H20 vs Ascend NPU).
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;Fallback per-tensor comparison used by run_msprobe_compare.sh.
 </span></span></span><span class=line><span class=cl><span class=s2>
 </span></span></span><span class=line><span class=cl><span class=s2>  
 </span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>Loaded via setuptools entry_points under group ``sglang.srt.plugins`` and
+</span></span></span><span class=line><span class=cl><span class=s2>Pairs tensors by their recorded name (which encodes side_layer_idx_submodule_kind)
 </span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>activated with ``SGLANG_PLUGINS=msprobe_dump``. Uses the official
+</span></span></span><span class=line><span class=cl><span class=s2>and reports max_abs_diff / mean_abs_diff / cosine per pair, plus the first layer
 </span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>``HookRegistry`` (see python/sglang/srt/plugins/hook_registry.py) to wrap
+</span></span></span><span class=line><span class=cl><span class=s2>where divergence exceeds a threshold. This mirrors what msprobe produces so the
 </span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>``ModelRunner.__init__`` with an AROUND hook. After the original __init__
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>returns (model loaded), the hook walks the decoder layers and registers
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>forward pre/post hooks on every submodule of interest. Dumped tensors go to
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>``$MSDUMP_DIR`` (one .pt per tensor + index.json), keyed by
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>``side_layer</span><span class=si>{idx:03d}</span><span class=s2>_</span><span class=si>{submodule}</span><span class=s2>_{input|output}`` where ``side`` is
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>``$MSDUMP_SIDE`` (e.g. &#34;h20&#34; or &#34;npu&#34;).
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>  
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>This is an ONLINE dump: it hooks the real server path (scheduler subprocess,
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>real attention backend, real KV cache), so what you compare is exactly what
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>the server computes. No separate offline Engine is constructed, avoiding
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>configuration drift between the dump run and the measured run.
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>  
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>Activation:
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    # package and install once (on both H20 and NPU hosts):
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    pip install -e .    # from this directory
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>  
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    # then launch the server with the plugin enabled:
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    SGLANG_PLUGINS=msprobe_dump </span><span class=se>\
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_DIR=/data/dump_h20 </span><span class=se>\
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_SIDE=h20 </span><span class=se>\
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    python -m sglang.launch_server --model-path ... --device cuda
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>  
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    # on NPU:
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    SGLANG_PLUGINS=msprobe_dump </span><span class=se>\
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_DIR=/data/dump_npu </span><span class=se>\
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    MSDUMP_SIDE=npu </span><span class=se>\
-</span></span></span><span class=line><span class=cl><span class=s2>
-</span></span></span><span class=line><span class=cl><span class=s2>    python -m sglang.launch_server --model-path ... --device npu --attention-backend ascend
+</span></span></span><span class=line><span class=cl><span class=s2>report is useful even when the official tool isn&#39;t installed.
 </span></span></span><span class=line><span class=cl><span class=s2>
 </span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
 </span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>argparse</span>
+</span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>json</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>cosine</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>fa</span> <span class=o>=</span> <span class=n>a</span><span class=o>.</span><span class=n>flatten</span><span class=p>()</span><span class=o>.</span><span class=n>float</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>fb</span> <span class=o>=</span> <span class=n>b</span><span class=o>.</span><span class=n>flatten</span><span class=p>()</span><span class=o>.</span><span class=n>float</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>denom</span> <span class=o>=</span> <span class=n>fa</span><span class=o>.</span><span class=n>norm</span><span class=p>()</span> <span class=o>*</span> <span class=n>fb</span><span class=o>.</span><span class=n>norm</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>denom</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=mf>1.0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span><span class=n>fa</span> <span class=o>@</span> <span class=n>fb</span> <span class=o>/</span> <span class=n>denom</span><span class=p>)</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span> <span class=o>=</span> <span class=n>argparse</span><span class=o>.</span><span class=n>ArgumentParser</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--h20&#34;</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--npu&#34;</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--out&#34;</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--threshold&#34;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>float</span><span class=p>,</span> <span class=n>default</span><span class=o>=</span><span class=mf>0.01</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                    <span class=n>help</span><span class=o>=</span><span class=s2>&#34;max_abs_diff above this marks a pair as DIVERGED&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>args</span> <span class=o>=</span> <span class=n>ap</span><span class=o>.</span><span class=n>parse_args</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>h_idx</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>((</span><span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>h20</span><span class=p>)</span> <span class=o>/</span> <span class=s2>&#34;index.json&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>read_text</span><span class=p>(</span><span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>n_idx</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>((</span><span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>npu</span><span class=p>)</span> <span class=o>/</span> <span class=s2>&#34;index.json&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>read_text</span><span class=p>(</span><span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Names differ only by side prefix; normalize by stripping &#34;h20_&#34;/&#34;npu_&#34;.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>norm</span><span class=p>(</span><span class=n>name</span><span class=p>):</span> <span class=k>return</span> <span class=n>name</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;_&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=p>)[</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>h_map</span> <span class=o>=</span> <span class=p>{</span><span class=n>norm</span><span class=p>(</span><span class=n>k</span><span class=p>):</span> <span class=n>k</span> <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=n>h_idx</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>n_map</span> <span class=o>=</span> <span class=p>{</span><span class=n>norm</span><span class=p>(</span><span class=n>k</span><span class=p>):</span> <span class=n>k</span> <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=n>n_idx</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>common</span> <span class=o>=</span> <span class=nb>sorted</span><span class=p>(</span><span class=nb>set</span><span class=p>(</span><span class=n>h_map</span><span class=p>)</span> <span class=o>&amp;</span> <span class=nb>set</span><span class=p>(</span><span class=n>n_map</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>rows</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>first_diverged</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>common</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>h_path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>h20</span><span class=p>)</span> <span class=o>/</span> <span class=n>h_idx</span><span class=p>[</span><span class=n>h_map</span><span class=p>[</span><span class=n>key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>n_path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>npu</span><span class=p>)</span> <span class=o>/</span> <span class=n>n_idx</span><span class=p>[</span><span class=n>n_map</span><span class=p>[</span><span class=n>key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=n>h_path</span><span class=o>.</span><span class=n>exists</span><span class=p>()</span> <span class=ow>or</span> <span class=ow>not</span> <span class=n>n_path</span><span class=o>.</span><span class=n>exists</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>a</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>h_path</span><span class=p>),</span> <span class=n>map_location</span><span class=o>=</span><span class=s2>&#34;cpu&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>b</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>n_path</span><span class=p>),</span> <span class=n>map_location</span><span class=o>=</span><span class=s2>&#34;cpu&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>torch</span><span class=o>.</span><span class=n>is_tensor</span><span class=p>(</span><span class=n>a</span><span class=p>)</span> <span class=ow>and</span> <span class=n>torch</span><span class=o>.</span><span class=n>is_tensor</span><span class=p>(</span><span class=n>b</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>a</span><span class=o>.</span><span class=n>shape</span> <span class=o>!=</span> <span class=n>b</span><span class=o>.</span><span class=n>shape</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>rows</span><span class=o>.</span><span class=n>append</span><span class=p>({</span><span class=s2>&#34;name&#34;</span><span class=p>:</span> <span class=n>key</span><span class=p>,</span> <span class=s2>&#34;status&#34;</span><span class=p>:</span> <span class=s2>&#34;SHAPE_MISMATCH&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                             <span class=s2>&#34;shape_a&#34;</span><span class=p>:</span> <span class=nb>list</span><span class=p>(</span><span class=n>a</span><span class=o>.</span><span class=n>shape</span><span class=p>),</span> <span class=s2>&#34;shape_b&#34;</span><span class=p>:</span> <span class=nb>list</span><span class=p>(</span><span class=n>b</span><span class=o>.</span><span class=n>shape</span><span class=p>)})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>diff</span> <span class=o>=</span> <span class=p>(</span><span class=n>a</span><span class=o>.</span><span class=n>float</span><span class=p>()</span> <span class=o>-</span> <span class=n>b</span><span class=o>.</span><span class=n>float</span><span class=p>())</span><span class=o>.</span><span class=n>abs</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>mad</span> <span class=o>=</span> <span class=n>diff</span><span class=o>.</span><span class=n>max</span><span class=p>()</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>mean</span> <span class=o>=</span> <span class=n>diff</span><span class=o>.</span><span class=n>mean</span><span class=p>()</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>cos</span> <span class=o>=</span> <span class=n>cosine</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>status</span> <span class=o>=</span> <span class=s2>&#34;DIVERGED&#34;</span> <span class=k>if</span> <span class=n>mad</span> <span class=o>&gt;</span> <span class=n>args</span><span class=o>.</span><span class=n>threshold</span> <span class=k>else</span> <span class=s2>&#34;ok&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>status</span> <span class=o>==</span> <span class=s2>&#34;DIVERGED&#34;</span> <span class=ow>and</span> <span class=n>first_diverged</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>first_diverged</span> <span class=o>=</span> <span class=n>key</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>rows</span><span class=o>.</span><span class=n>append</span><span class=p>({</span><span class=s2>&#34;name&#34;</span><span class=p>:</span> <span class=n>key</span><span class=p>,</span> <span class=s2>&#34;max_abs_diff&#34;</span><span class=p>:</span> <span class=n>mad</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                         <span class=s2>&#34;mean_abs_diff&#34;</span><span class=p>:</span> <span class=n>mean</span><span class=p>,</span> <span class=s2>&#34;cosine&#34;</span><span class=p>:</span> <span class=nb>round</span><span class=p>(</span><span class=n>cos</span><span class=p>,</span> <span class=mi>6</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                         <span class=s2>&#34;status&#34;</span><span class=p>:</span> <span class=n>status</span><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>rows</span><span class=o>.</span><span class=n>sort</span><span class=p>(</span><span class=n>key</span><span class=o>=</span><span class=k>lambda</span> <span class=n>r</span><span class=p>:</span> <span class=o>-</span><span class=n>r</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;max_abs_diff&#34;</span><span class=p>,</span> <span class=mi>0</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=se>\n</span><span class=si>{</span><span class=s1>&#39;name&#39;</span><span class=si>:</span><span class=s2>&lt;40</span><span class=si>}{</span><span class=s1>&#39;max_diff&#39;</span><span class=si>:</span><span class=s2>&gt;12</span><span class=si>}{</span><span class=s1>&#39;mean_diff&#39;</span><span class=si>:</span><span class=s2>&gt;12</span><span class=si>}{</span><span class=s1>&#39;cosine&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}</span><span class=s2>  status&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;-&#34;</span> <span class=o>*</span> <span class=mi>78</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>r</span> <span class=ow>in</span> <span class=n>rows</span><span class=p>[:</span><span class=mi>30</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>r</span><span class=p>[</span><span class=s2>&#34;status&#34;</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&#34;SHAPE_MISMATCH&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&lt;40</span><span class=si>}{</span><span class=s1>&#39;-&#39;</span><span class=si>:</span><span class=s2>&gt;12</span><span class=si>}{</span><span class=s1>&#39;-&#39;</span><span class=si>:</span><span class=s2>&gt;12</span><span class=si>}{</span><span class=s1>&#39;-&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}</span><span class=s2>  SHAPE_MISMATCH&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&lt;40</span><span class=si>}{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;max_abs_diff&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&gt;12.6f</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                  <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;mean_abs_diff&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&gt;12.6f</span><span class=si>}{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;cosine&#39;</span><span class=p>]</span><span class=si>:</span><span class=s2>&gt;10.4f</span><span class=si>}</span><span class=s2>  </span><span class=si>{</span><span class=n>r</span><span class=p>[</span><span class=s1>&#39;status&#39;</span><span class=p>]</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>n_div</span> <span class=o>=</span> <span class=nb>sum</span><span class=p>(</span><span class=mi>1</span> <span class=k>for</span> <span class=n>r</span> <span class=ow>in</span> <span class=n>rows</span> <span class=k>if</span> <span class=n>r</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;status&#34;</span><span class=p>)</span> <span class=o>==</span> <span class=s2>&#34;DIVERGED&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=se>\n</span><span class=si>{</span><span class=nb>len</span><span class=p>(</span><span class=n>rows</span><span class=p>)</span><span class=si>}</span><span class=s2> pairs, </span><span class=si>{</span><span class=n>n_div</span><span class=si>}</span><span class=s2> DIVERGED (threshold </span><span class=si>{</span><span class=n>args</span><span class=o>.</span><span class=n>threshold</span><span class=si>}</span><span class=s2>)&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>first_diverged</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;first diverged tensor: </span><span class=si>{</span><span class=n>first_diverged</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>out</span><span class=p>)</span><span class=o>.</span><span class=n>write_text</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>json</span><span class=o>.</span><span class=n>dumps</span><span class=p>({</span><span class=s2>&#34;rows&#34;</span><span class=p>:</span> <span class=n>rows</span><span class=p>,</span> <span class=s2>&#34;n_diverged&#34;</span><span class=p>:</span> <span class=n>n_div</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                    <span class=s2>&#34;first_diverged&#34;</span><span class=p>:</span> <span class=n>first_diverged</span><span class=p>},</span> <span class=n>ensure_ascii</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=mi>2</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;report written to </span><span class=si>{</span><span class=n>args</span><span class=o>.</span><span class=n>out</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-3-_torch_compare.py/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/>测试 4-run_smoke.sh</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-bash"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/usr/bin/env bash
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Step A: smoke-test output comparison for H20 vs Ascend NPU.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   bash run_smoke.sh &lt;side&gt; &lt;model-path&gt; &lt;device&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#       side   : h20 | npu</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#       device : cuda | npu</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># On the npu side, run `source /usr/local/Ascend/ascend-toolkit/set_env.sh`</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># before invoking this script.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>set</span> -euo pipefail
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SIDE</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>1</span><span class=p>:?usage: run_smoke.sh &lt;h20|npu&gt; &lt;model-path&gt; &lt;cuda|npu&gt;</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>MODEL</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>2</span><span class=p>:?model path required</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>DEVICE</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>3</span><span class=p>:?device required: cuda|npu</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>PORT</span><span class=o>=</span><span class=m>30000</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>BASE_URL</span><span class=o>=</span><span class=s2>&#34;http://localhost:</span><span class=si>${</span><span class=nv>PORT</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SCRIPT_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span><span class=nb>cd</span> <span class=s2>&#34;</span><span class=k>$(</span>dirname <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASH_SOURCE</span><span class=p>[0]</span><span class=si>}</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2>&#34;</span> <span class=o>&amp;&amp;</span> <span class=nb>pwd</span><span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>OUT</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/outputs_</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>.jsonl&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>LOG</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/server_</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>.log&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ---- launch server ----------------------------------------------------------</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>COMMON_ARGS</span><span class=o>=(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --model-path <span class=s2>&#34;</span><span class=si>${</span><span class=nv>MODEL</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --port <span class=s2>&#34;</span><span class=si>${</span><span class=nv>PORT</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --dtype bfloat16
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --trust-remote-code
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --seed <span class=m>42</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --context-length <span class=m>4096</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --device <span class=s2>&#34;</span><span class=si>${</span><span class=nv>DEVICE</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>DEVICE</span><span class=si>}</span><span class=s2>&#34;</span> <span class=o>==</span> <span class=s2>&#34;npu&#34;</span> <span class=o>)</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Standard SGLang Ascend configuration (mirrors python/sglang/test/ascend/</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># gsm8k_ascend_mixin.py). Without --attention-backend ascend the NPU path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># is not exercised; --disable-cuda-graph avoids graph-capture issues on NPU.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>EXTRA</span><span class=o>=(</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --attention-backend ascend
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --disable-cuda-graph
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --mem-fraction-static 0.8
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>export</span> <span class=nv>PYTORCH_NPU_ALLOC_CONF</span><span class=o>=</span>expandable_segments:True
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>export</span> <span class=nv>ASCEND_LAUNCH_BLOCKING</span><span class=o>=</span><span class=m>1</span>   <span class=c1># sync exec for reproducibility/debug</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>export</span> <span class=nv>TRANSFORMERS_VERBOSITY</span><span class=o>=</span>error
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>EXTRA</span><span class=o>=(</span> --mem-fraction-static 0.85 <span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] launching server: </span><span class=si>${</span><span class=nv>MODEL</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>nohup python -m sglang.launch_server <span class=s2>&#34;</span><span class=si>${</span><span class=nv>COMMON_ARGS</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>EXTRA</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    &gt; <span class=s2>&#34;</span><span class=si>${</span><span class=nv>LOG</span><span class=si>}</span><span class=s2>&#34;</span> 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SERVER_PID</span><span class=o>=</span><span class=nv>$!</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] server pid=</span><span class=si>${</span><span class=nv>SERVER_PID</span><span class=si>}</span><span class=s2>, log=</span><span class=si>${</span><span class=nv>LOG</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cleanup<span class=o>()</span> <span class=o>{</span> <span class=nb>kill</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SERVER_PID</span><span class=si>}</span><span class=s2>&#34;</span> 2&gt;/dev/null <span class=o>||</span> true<span class=p>;</span> <span class=nb>wait</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SERVER_PID</span><span class=si>}</span><span class=s2>&#34;</span> 2&gt;/dev/null <span class=o>||</span> true<span class=p>;</span> <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>trap</span> cleanup EXIT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ---- generate outputs -------------------------------------------------------</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] generating outputs -&gt; </span><span class=si>${</span><span class=nv>OUT</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>python <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/gen_outputs.py&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --base-url <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASE_URL</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --prompts <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/prompts.jsonl&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --output <span class=s2>&#34;</span><span class=si>${</span><span class=nv>OUT</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --max-new-tokens <span class=m>256</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --seed <span class=m>42</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --tokenizer <span class=s2>&#34;</span><span class=si>${</span><span class=nv>MODEL</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] done: </span><span class=si>${</span><span class=nv>OUT</span><span class=si>}</span><span class=s2>&#34;</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-4-run_smoke.sh/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/>测试 5-run_lmeval.sh</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-bash"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/usr/bin/env bash
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Step B: lm_eval-based acceptance comparison for H20 vs Ascend NPU.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Requires a running SGLang server on each side (use run_smoke.sh without the</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># auto-shutdown, or launch manually).</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   bash run_lmeval.sh &lt;side&gt; &lt;base-url&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#       side : h20 | npu</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Tasks chosen for signal/noise balance on Qwen3.5-Flash:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   gsm8k   math reasoning (sensitive to numeric precision)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   mmlu    broad knowledge</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   humaneval  code generation (exact-match)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>set</span> -euo pipefail
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SIDE</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>1</span><span class=p>:?usage: run_lmeval.sh &lt;h20|npu&gt; &lt;base-url&gt;</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>BASE_URL</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>2</span><span class=p>:?base url required, e.g. http://h20-host:</span><span class=nv>30000</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SCRIPT_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span><span class=nb>cd</span> <span class=s2>&#34;</span><span class=k>$(</span>dirname <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASH_SOURCE</span><span class=p>[0]</span><span class=si>}</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2>&#34;</span> <span class=o>&amp;&amp;</span> <span class=nb>pwd</span><span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>OUT_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/results_</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>TASKS</span><span class=o>=</span><span class=s2>&#34;gsm8k,mmlu,humaneval&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>MODEL_NAME</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>MODEL_NAME</span><span class=k>:-</span><span class=nv>Qwen3</span><span class=p>.5-Flash</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] lm_eval -&gt; </span><span class=si>${</span><span class=nv>OUT_DIR</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>lm_eval <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --model sglang <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --model_args <span class=s2>&#34;base_url=</span><span class=si>${</span><span class=nv>BASE_URL</span><span class=si>}</span><span class=s2>,model=</span><span class=si>${</span><span class=nv>MODEL_NAME</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --tasks <span class=s2>&#34;</span><span class=si>${</span><span class=nv>TASKS</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --num_fewshot <span class=m>0</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --batch_size <span class=m>8</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --seed <span class=m>42</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --output_path <span class=s2>&#34;</span><span class=si>${</span><span class=nv>OUT_DIR</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] done: </span><span class=si>${</span><span class=nv>OUT_DIR</span><span class=si>}</span><span class=s2>&#34;</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-5-run_lmeval.sh/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/>测试 6-run_msprobe_compare.sh</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-bash"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/usr/bin/env bash
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Step C: compare per-layer tensors dumped ONLINE by the sglang_msprobe_dump</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># plugin (run inside the real server process on each side).</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Two backends, tried in order:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   1) msprobe compare   — official Ascend tool, richest statistics</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   2) _torch_compare.py — pure-torch fallback (max/mean diff, cosine)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   bash run_msprobe_compare.sh &lt;dump_h20&gt; &lt;dump_npu&gt; &lt;out_dir&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>set</span> -euo pipefail
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>H20_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>1</span><span class=p>:?usage: run_msprobe_compare.sh &lt;dump_h20&gt; &lt;dump_npu&gt; &lt;out_dir&gt;</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>NPU_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>2</span><span class=p>:?dump_npu required</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>OUT_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>3</span><span class=p>:?out_dir required</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SCRIPT_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span><span class=nb>cd</span> <span class=s2>&#34;</span><span class=k>$(</span>dirname <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASH_SOURCE</span><span class=p>[0]</span><span class=si>}</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2>&#34;</span> <span class=o>&amp;&amp;</span> <span class=nb>pwd</span><span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>mkdir -p <span class=s2>&#34;</span><span class=si>${</span><span class=nv>OUT_DIR</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> python -c <span class=s2>&#34;import msprobe&#34;</span> 2&gt;/dev/null<span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;[msprobe] running official compare&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    python -m msprobe.compare <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --baseline <span class=s2>&#34;</span><span class=si>${</span><span class=nv>H20_DIR</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --target <span class=s2>&#34;</span><span class=si>${</span><span class=nv>NPU_DIR</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --output <span class=s2>&#34;</span><span class=si>${</span><span class=nv>OUT_DIR</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=o>||</span> <span class=nb>echo</span> <span class=s2>&#34;[msprobe] official CLI failed; falling back to torch&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;[torch] per-tensor comparison&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>python <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/_torch_compare.py&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --h20 <span class=s2>&#34;</span><span class=si>${</span><span class=nv>H20_DIR</span><span class=si>}</span><span class=s2>&#34;</span> --npu <span class=s2>&#34;</span><span class=si>${</span><span class=nv>NPU_DIR</span><span class=si>}</span><span class=s2>&#34;</span> --out <span class=s2>&#34;</span><span class=si>${</span><span class=nv>OUT_DIR</span><span class=si>}</span><span class=s2>/torch_report.json&#34;</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-6-run_msprobe_compare.sh/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-7-run_all.sh/>测试 7-run_all.sh</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-bash"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/usr/bin/env bash
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># One-shot entry: smoke -&gt; lm_eval -&gt; msprobe, for H20 vs Ascend NPU.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Run on the H20 host and on the NPU host separately, then bring the output</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># files together for the diff steps. This script does NOT assume the two</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># hosts can reach each other; each side produces artifacts you copy over.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#   bash run_all.sh &lt;side&gt; &lt;model-path&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#       side: h20 | npu</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># On the NPU side, `source /usr/local/Ascend/ascend-toolkit/set_env.sh` first</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># and `pip install -e ./msprobe_dump_plugin` once.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>set</span> -euo pipefail
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SIDE</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>1</span><span class=p>:?usage: run_all.sh &lt;h20|npu&gt; &lt;model-path&gt;</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>MODEL</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>2</span><span class=p>:?model path required</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SCRIPT_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span><span class=nb>cd</span> <span class=s2>&#34;</span><span class=k>$(</span>dirname <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASH_SOURCE</span><span class=p>[0]</span><span class=si>}</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2>&#34;</span> <span class=o>&amp;&amp;</span> <span class=nb>pwd</span><span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>DEVICE</span><span class=o>=</span><span class=k>$(</span><span class=o>[[</span> <span class=s2>&#34;</span><span class=nv>$SIDE</span><span class=s2>&#34;</span> <span class=o>==</span> <span class=s2>&#34;npu&#34;</span> <span class=k>)</span> <span class=o>&amp;&amp;</span> <span class=nb>echo</span> npu <span class=o>||</span> <span class=nb>echo</span> cuda<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>BASE_URL</span><span class=o>=</span><span class=s2>&#34;http://localhost:30000&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;==================== Step A: smoke (</span><span class=nv>$SIDE</span><span class=s2>) ====================&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>bash <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/run_smoke.sh&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>MODEL</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>DEVICE</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># run_smoke.sh launches+generates+shutdowns; it leaves outputs_${SIDE}.jsonl</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;==================== Step B: lm_eval (</span><span class=nv>$SIDE</span><span class=s2>) ====================&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Re-launch the server in the background for lm_eval (Step B needs it up).</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>COMMON</span><span class=o>=(</span> --model-path <span class=s2>&#34;</span><span class=si>${</span><span class=nv>MODEL</span><span class=si>}</span><span class=s2>&#34;</span> --port <span class=m>30000</span> --dtype bfloat16
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>         --trust-remote-code --seed <span class=m>42</span> --context-length <span class=m>4096</span> --device <span class=s2>&#34;</span><span class=si>${</span><span class=nv>DEVICE</span><span class=si>}</span><span class=s2>&#34;</span> <span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>DEVICE</span><span class=si>}</span><span class=s2>&#34;</span> <span class=o>==</span> <span class=s2>&#34;npu&#34;</span> <span class=o>)</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>EXTRA</span><span class=o>=(</span> --attention-backend ascend --disable-cuda-graph --mem-fraction-static 0.8 <span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>export</span> <span class=nv>PYTORCH_NPU_ALLOC_CONF</span><span class=o>=</span>expandable_segments:True
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>export</span> <span class=nv>ASCEND_LAUNCH_BLOCKING</span><span class=o>=</span><span class=m>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>EXTRA</span><span class=o>=(</span> --mem-fraction-static 0.85 <span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>nohup python -m sglang.launch_server <span class=s2>&#34;</span><span class=si>${</span><span class=nv>COMMON</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>EXTRA</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    &gt; <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/server_</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>_stepB.log&#34;</span> 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>SRV</span><span class=o>=</span><span class=nv>$!</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>trap</span> <span class=s1>&#39;kill $SRV 2&gt;/dev/null || true; wait $SRV 2&gt;/dev/null || true&#39;</span> EXIT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Warm up with a tiny request so the first lm_eval batch isn&#39;t cold.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>python <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/gen_outputs.py&#34;</span> --base-url <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASE_URL</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --prompts <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/prompts.jsonl&#34;</span> --output /tmp/_warmup_<span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span>.jsonl <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    --max-new-tokens <span class=m>8</span> <span class=o>||</span> <span class=nb>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>bash <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/run_lmeval.sh&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASE_URL</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;==================== Step C: msprobe online dump (</span><span class=nv>$SIDE</span><span class=s2>) ====================&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Requires the plugin installed: pip install -e &#34;${SCRIPT_DIR}/msprobe_dump_plugin&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>DUMP_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/dump_</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>kill</span> <span class=nv>$SRV</span> 2&gt;/dev/null <span class=o>||</span> true<span class=p>;</span> <span class=nb>wait</span> <span class=nv>$SRV</span> 2&gt;/dev/null <span class=o>||</span> <span class=nb>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>trap</span> - EXIT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Re-launch with plugin enabled; it hooks ModelRunner.__init__ in-scheduler.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> ! python -c <span class=s2>&#34;import sglang_msprobe_dump&#34;</span> 2&gt;/dev/null<span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;[!] sglang_msprobe_dump not installed; run: pip install -e </span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/msprobe_dump_plugin&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;    skipping Step C on </span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>SGLANG_PLUGINS</span><span class=o>=</span>msprobe_dump <span class=nv>MSDUMP_DIR</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>DUMP_DIR</span><span class=si>}</span><span class=s2>&#34;</span> <span class=nv>MSDUMP_SIDE</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        nohup python -m sglang.launch_server <span class=s2>&#34;</span><span class=si>${</span><span class=nv>COMMON</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>EXTRA</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        &gt; <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/server_</span><span class=si>${</span><span class=nv>SIDE</span><span class=si>}</span><span class=s2>_stepC.log&#34;</span> 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>SRV</span><span class=o>=</span><span class=nv>$!</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>trap</span> <span class=s1>&#39;kill $SRV 2&gt;/dev/null || true; wait $SRV 2&gt;/dev/null || true&#39;</span> EXIT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># trigger one forward so hooks fire</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    python <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/gen_outputs.py&#34;</span> --base-url <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BASE_URL</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --prompts <span class=s2>&#34;</span><span class=si>${</span><span class=nv>SCRIPT_DIR</span><span class=si>}</span><span class=s2>/prompts.jsonl&#34;</span> --output /tmp/_dumptrigger.jsonl <span class=se>\
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        --max-new-tokens <span class=m>16</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>kill</span> <span class=nv>$SRV</span> 2&gt;/dev/null <span class=o>||</span> true<span class=p>;</span> <span class=nb>wait</span> <span class=nv>$SRV</span> 2&gt;/dev/null <span class=o>||</span> <span class=nb>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>trap</span> - EXIT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$SIDE</span><span class=s2>] dump -&gt; </span><span class=si>${</span><span class=nv>DUMP_DIR</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cat <span class=s>&lt;&lt;EOF
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>  
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>==================== $SIDE done =====================
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Artifacts (copy these to a single machine and diff):
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>  Step A:  ${SCRIPT_DIR}/outputs_${SIDE}.jsonl
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>  Step B:  ${SCRIPT_DIR}/results_${SIDE}/
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>  Step C:  ${SCRIPT_DIR}/dump_${SIDE}/
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>  
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>After both sides finish, run on any host:
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>  python compare_outputs.py --baseline outputs_h20.jsonl --target outputs_npu.jsonl
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>  python lmeval_diff.py results_h20 results_npu
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>  bash run_msprobe_compare.sh dump_h20 dump_npu msprobe_report
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-7-run_all.sh/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-8-lmeval_diff.py/>测试 8-lmeval_diff.py</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/><i class="far fa-folder" aria-hidden=true></i>日常记录</a></span></div><div class=content><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-python"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
+<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;Diff two lm_eval result directories produced by run_lmeval.sh.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>lm_eval writes one subdirectory per task under the output path; each contains
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>a results.json. We aggregate by task across the two sides and report acc delta.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>  
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Usage:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    python lmeval_diff.py results_h20 results_npu
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>argparse</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>json</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sglang.srt.plugins.hook_registry</span> <span class=kn>import</span> <span class=n>HookRegistry</span><span class=p>,</span> <span class=n>HookType</span>
-</span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>logger</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>find_results</span><span class=p>(</span><span class=n>root</span><span class=p>:</span> <span class=n>Path</span><span class=p>):</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Return {task: acc} from an lm_eval output dir.&#34;&#34;&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Step3p5DecoderLayer attributes (srt/models/step3p5.py); also covers Qwen3.5</span>
+</span></span><span class=line><span class=cl>    <span class=n>out</span> <span class=o>=</span> <span class=p>{}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># since the submodule names are shared. Extend for finer granularity.</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>LAYER_SUBMODULES</span> <span class=o>=</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;self_attn&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;moe&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;mlp&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;share_expert&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;input_layernorm&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;post_attention_layernorm&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_to_cpu</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=kn>import</span> <span class=nn>torch</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>x</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>None</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=p>(</span><span class=nb>tuple</span><span class=p>,</span> <span class=nb>list</span><span class=p>)):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>[</span><span class=n>_to_cpu</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=k>for</span> <span class=n>t</span> <span class=ow>in</span> <span class=n>x</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=nb>dict</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>{</span><span class=n>k</span><span class=p>:</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>v</span><span class=p>)</span> <span class=k>for</span> <span class=n>k</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=n>x</span><span class=o>.</span><span class=n>items</span><span class=p>()}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>torch</span><span class=o>.</span><span class=n>is_tensor</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>x</span><span class=o>.</span><span class=n>detach</span><span class=p>()</span><span class=o>.</span><span class=n>to</span><span class=p>(</span><span class=s2>&#34;cpu&#34;</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=n>torch</span><span class=o>.</span><span class=n>float32</span><span class=p>)</span><span class=o>.</span><span class=n>contiguous</span><span class=p>()</span><span class=o>.</span><span class=n>clone</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_find_decoder_layers</span><span class=p>(</span><span class=n>model</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Locate the decoder layer list, tolerant of nesting.&#34;&#34;&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>path</span> <span class=ow>in</span> <span class=p>((</span><span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;layers&#34;</span><span class=p>),</span> <span class=p>(</span><span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=s2>&#34;layers&#34;</span><span class=p>)):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>cur</span> <span class=o>=</span> <span class=n>model</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>ok</span> <span class=o>=</span> <span class=kc>True</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>attr</span> <span class=ow>in</span> <span class=n>path</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>cur</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>attr</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>cur</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>                <span class=n>ok</span> <span class=o>=</span> <span class=kc>False</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>                <span class=k>break</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>ok</span> <span class=ow>and</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=p>(</span><span class=nb>list</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>))</span> <span class=ow>and</span> <span class=n>cur</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nb>list</span><span class=p>(</span><span class=n>cur</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=c1># fallback: any *layers* list-like attribute</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>attr</span> <span class=ow>in</span> <span class=nb>dir</span><span class=p>(</span><span class=n>model</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=s2>&#34;layer&#34;</span> <span class=ow>in</span> <span class=n>attr</span><span class=o>.</span><span class=n>lower</span><span class=p>():</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>v</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>model</span><span class=p>,</span> <span class=n>attr</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=p>(</span><span class=nb>list</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>))</span> <span class=ow>and</span> <span class=n>v</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=nb>list</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>[]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_make_recorder</span><span class=p>(</span><span class=n>dump_dir</span><span class=p>:</span> <span class=n>Path</span><span class=p>,</span> <span class=n>side</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Build (pre_hook, post_hook) closures that dump to dump_dir.&#34;&#34;&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>index</span> <span class=o>=</span> <span class=p>{}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_record</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>tensor</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>tensor</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=k>return</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>p</span> <span class=ow>in</span> <span class=n>root</span><span class=o>.</span><span class=n>rglob</span><span class=p>(</span><span class=s2>&#34;results.json&#34;</span><span class=p>):</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>            <span class=n>data</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>(</span><span class=n>p</span><span class=o>.</span><span class=n>read_text</span><span class=p>(</span><span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>))</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>torch</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=n>tensor</span><span class=p>,</span> <span class=nb>str</span><span class=p>(</span><span class=n>dump_dir</span> <span class=o>/</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name</span><span class=si>}</span><span class=s2>.pt&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>  <span class=c1># noqa: BLE001</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>index</span><span class=p>[</span><span class=n>name</span><span class=p>]</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name</span><span class=si>}</span><span class=s2>.pt&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;  ! skip </span><span class=si>{</span><span class=n>p</span><span class=si>}</span><span class=s2>: </span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=ne>Exception</span><span class=p>:</span>  <span class=c1># noqa: BLE001</span>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>logger</span><span class=o>.</span><span class=n>exception</span><span class=p>(</span><span class=s2>&#34;dump failed for </span><span class=si>%s</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>task</span><span class=p>,</span> <span class=n>m</span> <span class=ow>in</span> <span class=n>data</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;results&#34;</span><span class=p>,</span> <span class=p>{})</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>            <span class=n>acc</span> <span class=o>=</span> <span class=n>m</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;acc,none&#34;</span><span class=p>,</span> <span class=n>m</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;acc&#34;</span><span class=p>))</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>pre_hook</span><span class=p>(</span><span class=n>submodule</span><span class=p>,</span> <span class=n>layer_idx</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>acc</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>_h</span><span class=p>(</span><span class=n>module</span><span class=p>,</span> <span class=n>args</span><span class=p>,</span> <span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=c1># humaneval uses pass@1</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>tensor</span> <span class=o>=</span> <span class=n>args</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=k>if</span> <span class=n>args</span> <span class=k>else</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>                <span class=n>acc</span> <span class=o>=</span> <span class=n>m</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;pass@1,none&#34;</span><span class=p>,</span> <span class=n>m</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;pass@1&#34;</span><span class=p>))</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>_record</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name_prefix</span><span class=si>}</span><span class=s2>_input&#34;</span><span class=p>,</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>tensor</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>acc</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>_h</span>
+</span></span><span class=line><span class=cl>                <span class=n>out</span><span class=p>[</span><span class=n>task</span><span class=p>]</span> <span class=o>=</span> <span class=n>acc</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>post_hook</span><span class=p>(</span><span class=n>submodule</span><span class=p>,</span> <span class=n>layer_idx</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>_h</span><span class=p>(</span><span class=n>module</span><span class=p>,</span> <span class=n>args</span><span class=p>,</span> <span class=n>kwargs</span><span class=p>,</span> <span class=n>output</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>_record</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>name_prefix</span><span class=si>}</span><span class=s2>_output&#34;</span><span class=p>,</span> <span class=n>_to_cpu</span><span class=p>(</span><span class=n>output</span><span class=p>))</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>_h</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>pre_hook</span><span class=p>,</span> <span class=n>post_hook</span><span class=p>,</span> <span class=n>index</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>out</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  
 </span></span><span class=line><span class=cl>  
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Module-level holder so the AROUND hook below can attach handles and write</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># the index file at shutdown.</span>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span> <span class=o>=</span> <span class=n>argparse</span><span class=o>.</span><span class=n>ArgumentParser</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>_STATE</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;handles&#34;</span><span class=p>:</span> <span class=p>[],</span> <span class=s2>&#34;index&#34;</span><span class=p>:</span> <span class=p>{},</span> <span class=s2>&#34;dump_dir&#34;</span><span class=p>:</span> <span class=kc>None</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;h20&#34;</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=s2>&#34;results_h20 dir&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;npu&#34;</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=s2>&#34;results_npu dir&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>ap</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s2>&#34;--threshold&#34;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>float</span><span class=p>,</span> <span class=n>default</span><span class=o>=</span><span class=mf>0.01</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                    <span class=n>help</span><span class=o>=</span><span class=s2>&#34;abs acc delta threshold for FAIL (default 0.01=1%)&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>args</span> <span class=o>=</span> <span class=n>ap</span><span class=o>.</span><span class=n>parse_args</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>h</span> <span class=o>=</span> <span class=n>find_results</span><span class=p>(</span><span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>h20</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>n</span> <span class=o>=</span> <span class=n>find_results</span><span class=p>(</span><span class=n>Path</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>npu</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=se>\n</span><span class=si>{</span><span class=s1>&#39;task&#39;</span><span class=si>:</span><span class=s2>&lt;14</span><span class=si>}{</span><span class=s1>&#39;H20&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}{</span><span class=s1>&#39;NPU&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}{</span><span class=s1>&#39;diff&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}</span><span class=s2>  status&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;-&#34;</span> <span class=o>*</span> <span class=mi>50</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>any_fail</span> <span class=o>=</span> <span class=kc>False</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>task</span> <span class=ow>in</span> <span class=nb>sorted</span><span class=p>(</span><span class=nb>set</span><span class=p>(</span><span class=n>h</span><span class=p>)</span> <span class=o>|</span> <span class=nb>set</span><span class=p>(</span><span class=n>n</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>a</span> <span class=o>=</span> <span class=n>h</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>task</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>b</span> <span class=o>=</span> <span class=n>n</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>task</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>a</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>or</span> <span class=n>b</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>task</span><span class=si>:</span><span class=s2>&lt;14</span><span class=si>}{</span><span class=s1>&#39;MISSING&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}{</span><span class=s1>&#39;MISSING&#39;</span><span class=si>:</span><span class=s2>&gt;10</span><span class=si>}</span><span class=s2>  skip&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>d</span> <span class=o>=</span> <span class=n>b</span> <span class=o>-</span> <span class=n>a</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>status</span> <span class=o>=</span> <span class=s2>&#34;OK&#34;</span> <span class=k>if</span> <span class=nb>abs</span><span class=p>(</span><span class=n>d</span><span class=p>)</span> <span class=o>&lt;</span> <span class=n>args</span><span class=o>.</span><span class=n>threshold</span> <span class=k>else</span> <span class=s2>&#34;FAIL&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>status</span> <span class=o>==</span> <span class=s2>&#34;FAIL&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>any_fail</span> <span class=o>=</span> <span class=kc>True</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>task</span><span class=si>:</span><span class=s2>&lt;14</span><span class=si>}{</span><span class=n>a</span><span class=si>:</span><span class=s2>&gt;10.4f</span><span class=si>}{</span><span class=n>b</span><span class=si>:</span><span class=s2>&gt;10.4f</span><span class=si>}{</span><span class=n>d</span><span class=si>:</span><span class=s2>&gt;+10.4f</span><span class=si>}</span><span class=s2>  </span><span class=si>{</span><span class=n>status</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>overall:&#34;</span><span class=p>,</span> <span class=s2>&#34;PASS (precision equivalent)&#34;</span> <span class=k>if</span> <span class=ow>not</span> <span class=n>any_fail</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=k>else</span> <span class=s2>&#34;FAIL -&gt; run msprobe to localize&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;verdict threshold: |acc diff| &lt; </span><span class=si>%.2f%%</span><span class=s2>&#34;</span> <span class=o>%</span> <span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>threshold</span> <span class=o>*</span> <span class=mi>100</span><span class=p>))</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  
 </span></span><span class=line><span class=cl>  
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_model_runner_init_around</span><span class=p>(</span><span class=n>original_fn</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;AROUND hook on ModelRunner.__init__: run original, then attach hooks.&#34;&#34;&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=n>original_fn</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>runner</span> <span class=o>=</span> <span class=n>args</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=k>if</span> <span class=n>args</span> <span class=k>else</span> <span class=kc>None</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>dump_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;MSDUMP_DIR&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>side</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;MSDUMP_SIDE&#34;</span><span class=p>,</span> <span class=s2>&#34;side&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>dump_dir</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s2>&#34;MSDUMP_DIR not set; msprobe_dump plugin is no-op&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>result</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>runner</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>or</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>runner</span><span class=p>,</span> <span class=s2>&#34;model&#34;</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s2>&#34;ModelRunner.model not available after __init__; skip dump&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>result</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>dump_path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>dump_dir</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>dump_path</span><span class=o>.</span><span class=n>mkdir</span><span class=p>(</span><span class=n>parents</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>exist_ok</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>layers</span> <span class=o>=</span> <span class=n>_find_decoder_layers</span><span class=p>(</span><span class=n>runner</span><span class=o>.</span><span class=n>model</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&#34;msprobe_dump: side=</span><span class=si>%s</span><span class=s2> layers=</span><span class=si>%d</span><span class=s2> dump_dir=</span><span class=si>%s</span><span class=s2>&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>                <span class=n>side</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>layers</span><span class=p>),</span> <span class=n>dump_path</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>pre</span><span class=p>,</span> <span class=n>post</span><span class=p>,</span> <span class=n>index</span> <span class=o>=</span> <span class=n>_make_recorder</span><span class=p>(</span><span class=n>dump_path</span><span class=p>,</span> <span class=n>side</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;index&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=n>index</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;dump_dir&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=n>dump_path</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>layer</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>layers</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>sub</span> <span class=ow>in</span> <span class=n>LAYER_SUBMODULES</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>mod</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>layer</span><span class=p>,</span> <span class=n>sub</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>mod</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>                <span class=k>continue</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>name_prefix</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>side</span><span class=si>}</span><span class=s2>_layer</span><span class=si>{</span><span class=n>i</span><span class=si>:</span><span class=s2>03d</span><span class=si>}</span><span class=s2>_</span><span class=si>{</span><span class=n>sub</span><span class=si>}</span><span class=s2>&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;handles&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>                <span class=n>mod</span><span class=o>.</span><span class=n>register_forward_pre_hook</span><span class=p>(</span><span class=n>pre</span><span class=p>(</span><span class=n>mod</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>),</span> <span class=n>with_kwargs</span><span class=o>=</span><span class=kc>True</span><span class=p>))</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;handles&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>                <span class=n>mod</span><span class=o>.</span><span class=n>register_forward_hook</span><span class=p>(</span><span class=n>post</span><span class=p>(</span><span class=n>mod</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>name_prefix</span><span class=p>),</span> <span class=n>with_kwargs</span><span class=o>=</span><span class=kc>True</span><span class=p>))</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=c1># write index.json now so it exists even if the process is killed later.</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>_write_index</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=kn>import</span> <span class=nn>atexit</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>atexit</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=n>_write_index</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>result</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_write_index</span><span class=p>():</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>dump_dir</span> <span class=o>=</span> <span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;dump_dir&#34;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>dump_dir</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=k>return</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>try</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=n>dump_dir</span> <span class=o>/</span> <span class=s2>&#34;index.json&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>write_text</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>json</span><span class=o>.</span><span class=n>dumps</span><span class=p>(</span><span class=n>_STATE</span><span class=p>[</span><span class=s2>&#34;index&#34;</span><span class=p>],</span> <span class=n>ensure_ascii</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=mi>2</span><span class=p>),</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>except</span> <span class=ne>Exception</span><span class=p>:</span>  <span class=c1># noqa: BLE001</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>exception</span><span class=p>(</span><span class=s2>&#34;write index.json failed&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>_register</span><span class=p>():</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>HookRegistry</span><span class=o>.</span><span class=n>register</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=s2>&#34;sglang.srt.model_executor.model_runner.ModelRunner.__init__&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>_model_runner_init_around</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>HookType</span><span class=o>.</span><span class=n>AROUND</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&#34;msprobe_dump plugin registered AROUND ModelRunner.__init__&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>  
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>_register</span><span class=p>()</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-9-__init__.py/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/>深入了解 torch_npu 如何完成模型迁移适配</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/><i class="far fa-folder" aria-hidden=true></i>未分类</a></span></div><div class=content><h2 id=torch_npu-适配深度分析>torch_npu 适配深度分析</h2><p><code>torch_npu</code> 通过<strong>插件机制</strong>将华为昇腾 NPU 无缝接入原生 PyTorch，其核心思路是：<strong>利用 PyTorch 预留的 <code>PrivateUse1</code> 后端扩展点</strong>。以下是完整适配链路：</p><hr><h3 id=一架构总览>一、架构总览</h3><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-"><span class=code-title><i class="arrow fas fa-angle-right" aria-hidden=true></i></span>
-<span class=ellipses><i class="fas fa-ellipsis-h" aria-hidden=true></i></span>
-<span class=copy title=复制到剪贴板><i class="far fa-copy" aria-hidden=true></i></span></div><pre tabindex=0><code>PyTorch 原生                           torch_npu 插件
-┌─────────────────────┐     ┌──────────────────────────────────────┐
-│  torch.Tensor       │ ──▶ │  生成 .npu() 方法                    │
-│  torch.nn.Module    │ ──▶ │  生成 .npu() 方法                    │
-│  torch.Storage      │ ──▶ │  生成 .npu() 方法                    │
-│  DeviceType::CUDA   │     │  DeviceType::PrivateUse1 → &#34;npu&#34;     │
-│  DispatchKey::CUDA  │ ──▶ │  DispatchKey::PrivateUse1            │
-│  CUDAGuardImpl      │ ──▶ │  NPUGuardImpl (C10_REGISTER)         │
-│  c10::Stream        │ ──▶ │  NPUStream                           │
-│  torch._C           │ ──▶ │  torch_npu._C (pybind扩展)           │
-│  torch.backends     │ ──▶ │  entry_points: torch.backends        │
-│  torch.cuda.*       │ ──▶ │  torch.npu.* (镜像API)               │
-│  torch.distributed  │ ──▶ │  HCCL backend (替代NCCL)             │
-│  torch.compile      │ ──▶ │  NPU Inductor backend                │
-│  torch.autograd     │ ──▶ │  autograd 算子注册                   │
-│  CANN               │     │  (CANN/ACL底层计算库)                 │
-└─────────────────────┘     └──────────────────────────────────────┘</code></pre></div><hr><h3 id=二关键适配机制按代码定位>二、关键适配机制（按代码定位）</h3><h4 id=1-privateuse1-后端注册-最关键的钩子>1. 🔌 <strong>PrivateUse1 后端注册</strong> — 最关键的钩子</h4><p>PyTorch 原生预留了 <code>c10::DeviceType::PrivateUse1</code> 作为第3方设备扩展点。<code>torch_npu</code> 在 C++ 编译期就静态注册：</p></div><div class=post-footer><a href=/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/>阅读全文</a></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC12%E4%B8%AA%E9%97%AE%E9%A2%98/>费曼12个问题</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%96%B9%E6%B3%95/><i class="far fa-folder" aria-hidden=true></i>方法</a></span></div><div class=content><p>#认知 #学习</p><p>费曼的12个问题，每次看到一些新信息的时候，都可以把信息存储整理到对应的问题中。</p><p>问题分成三类：<br>1.你想达到的目标（比如理财、健康饮食等）<br>2.你想改进，但没有具体目标的事项（比如更加自信、更加高效、读更多书）<br>3.你想改变什么就先身体力行的去做什么（比如希望大家能更好的自我认知，那就先去提升自己的自我认知）</p></div><div class=post-footer><a href=/posts/%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC12%E4%B8%AA%E9%97%AE%E9%A2%98/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/%E5%AD%A6%E4%B9%A0/>学习</a>,&nbsp;<a href=/tags/%E8%AE%A4%E7%9F%A5/>认知</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E5%AD%A6%E4%B9%A0/git/>git</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E5%AD%A6%E4%B9%A0/><i class="far fa-folder" aria-hidden=true></i>学习</a></span></div><div class=content><p>#git #自定义域名</p><h1 id=配置git>配置git</h1><p><strong>1、创建 git 仓库</strong></p><p><img class=lazyload src=/svg/loading.min.svg data-src=/assets/git/file-20260317133651927.png data-srcset="/assets/git/file-20260317133651927.png, /assets/git/file-20260317133651927.png 1.5x, /assets/git/file-20260317133651927.png 2x" data-sizes=auto alt=/assets/git/file-20260317133651927.png title=/assets/git/file-20260317133651927.png></p><p><strong>2、绑定自定义域名（使用 <code>custom.com</code>）</strong></p><p>如果您希望使用第三方购买的域名（如 <code>example.com</code>），而非 <code>github.io</code> 域名：</p></div><div class=post-footer><a href=/posts/%E5%AD%A6%E4%B9%A0/git/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/git/>Git</a>,&nbsp;<a href=/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/>自定义域名</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/%E5%AD%A6%E4%B9%A0/hexo/>hexo</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E5%AD%A6%E4%B9%A0/><i class="far fa-folder" aria-hidden=true></i>学习</a></span></div><div class=content><p>#hexo</p><h1 id=下载安装包>下载安装包</h1><h2 id=下载-git>下载 git</h2><p><a href=https://github.com/git-for-windows/git/releases/download/v2.53.0.windows.2/Git-2.53.0.2-64-bit.exe target=_blank rel="noopener noreffer">https://github.com/git-for-windows/git/releases/download/v2.53.0.windows.2/Git-2.53.0.2-64-bit.exe</a></p><h2 id=下载-obsidian>下载 obsidian</h2><p><a href=https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/Obsidian-1.12.4.exe target=_blank rel="noopener noreffer">https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/Obsidian-1.12.4.exe</a></p><h2 id=下载-pandoc--文档格式转换>下载 pandoc | 文档格式转换</h2><p><a href=https://github.com/jgm/pandoc/releases/download/3.9/pandoc-3.9-windows-x86_64.zip target=_blank rel="noopener noreffer">https://github.com/jgm/pandoc/releases/download/3.9/pandoc-3.9-windows-x86_64.zip</a></p></div><div class=post-footer><a href=/posts/%E5%AD%A6%E4%B9%A0/hexo/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/hexo/>Hexo</a></div></div></article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline"><a href=/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-1/>sgl-kernel 算子适配-1</a></h1><div class=post-meta><span class=post-author><a href=https://github.com/ch-tiger title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>CH-Tiger</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2026-08-20>2026-08-20</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/><i class="far fa-folder" aria-hidden=true></i>未分类</a></span></div><div class=content><h2 id=关键要点回顾>关键要点回顾</h2><h3 id=你需要的全部修改按顺序>你需要的全部修改（按顺序）</h3><table><thead><tr><th>步骤</th><th>位置</th><th>内容</th><th>是否必须</th></tr></thead><tbody><tr><td>1️⃣</td><td><code>python/sglang/srt/utils/common.py</code></td><td>添加 <code>is_zpu()</code> 检测函数</td><td>✅ 必须</td></tr><tr><td>2️⃣</td><td><code>sgl-kernel/python/sgl_kernel/__init__.py</code></td><td>在加载 common_ops 前注册 <code>_register_privateuse1_backend("zpu")</code></td><td>✅ 必须</td></tr><tr><td>3️⃣</td><td><code>sgl-kernel/csrc/zpu/rmsnorm_zpu.cpp</code>（新增）</td><td>用你的 <code>zpu_ops</code> API 实现 rmsnorm 等算子</td><td>✅ 必须</td></tr><tr><td>4️⃣</td><td><code>sgl-kernel/csrc/zpu/zpu_extension.cc</code>（新增）</td><td><code>TORCH_LIBRARY_IMPL(sgl_kernel, PrivateUse1, m)</code> 注册</td><td>✅ 必须</td></tr><tr><td>5️⃣</td><td><code>sgl-kernel/CMakeLists.txt</code></td><td>将 zpu 源文件加入 SOURCES 列表</td><td>✅ 必须</td></tr><tr><td>6️⃣</td><td><code>python/sglang/srt/layers/layernorm.py</code></td><td>导入 sgl_kernel、添加 <code>forward_zpu()</code></td><td>✅ 必须</td></tr><tr><td>7️⃣</td><td><code>python/sglang/srt/layers/utils/multi_platform.py</code></td><td>在 <code>dispatch_forward()</code> 添加 zpu 分支</td><td>✅ 必须</td></tr><tr><td>8️⃣</td><td>你的插件包（或 sglang 代码内）</td><td>OOT 平台注册 ZPUSRTPlatform</td><td>⬜ 可选（先硬编码也行）</td></tr></tbody></table><h3 id=核心一句话>核心一句话</h3><blockquote><p><strong><code>torch._C._register_privateuse1_backend("zpu")</code> 不需要修改 PyTorch 源码。</strong> 它只是让 PyTorch 知道 &ldquo;zpu&rdquo; 等于 <code>PrivateUse1</code>，然后你的 <code>TORCH_LIBRARY_IMPL(sgl_kernel, PrivateUse1, m)</code> 在 common_ops.so 加载时自然生效。你的 <code>rmsnorm_zpu()</code> 函数内部直接调用 <code>zpu_ops</code> 的 native C API，不需要依赖 PyTorch 的基础算子栈。</p></div><div class=post-footer><a href=/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-1/>阅读全文</a><div class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/include/>Include</a></div></div></article><ul class=pagination><li class=page-item><span class=page-link><a href=/>1</a></span></li><li class=page-item><span class=page-link><a href=/page/2/>2</a></span></li><li class="page-item active"><span class=page-link><a href=/page/3/>3</a></span></li><li class=page-item><span class=page-link><a href=/page/4/>4</a></span></li></ul></div></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.165.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/ch-tiger target=_blank>CH-Tiger</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script src=/lib/lunr/lunr.stemmer.support.min.js></script><script src=/lib/lunr/lunr.zh.min.js></script><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script src=https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js></script><script>window.config={data:{"id-1":"CH-Tiger's Note","id-2":"CH-Tiger's Note","id-3":"🐯 记录技术，探索未知。"},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:30,type:"lunr"},typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},duration:-1,speed:100}}</script><script src=/js/theme.js></script></body></html>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span></span></span></code></pre></div></div></div><div class=post-footer><a href=/posts/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/%E6%B5%8B%E8%AF%95-8-lmeval_diff.py/>阅读全文</a></div></article><ul class=pagination><li class=page-item><span class=page-link><a href=/>1</a></span></li><li class=page-item><span class=page-link><a href=/page/2/>2</a></span></li><li class="page-item active"><span class=page-link><a href=/page/3/>3</a></span></li><li class=page-item><span class=page-link><a href=/page/4/>4</a></span></li></ul></div></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.165.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/ch-tiger target=_blank>CH-Tiger</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script src=/lib/lunr/lunr.stemmer.support.min.js></script><script src=/lib/lunr/lunr.zh.min.js></script><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script src=https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js></script><script>window.config={data:{"id-1":"CH-Tiger's Note","id-2":"CH-Tiger's Note","id-3":"🐯 记录技术，探索未知。"},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:30,type:"lunr"},typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},duration:-1,speed:100}}</script><script src=/js/theme.js></script></body></html>
