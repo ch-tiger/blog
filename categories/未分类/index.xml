@@ -1,4 +1,53 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>未分类 - 分类 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/</link><description>未分类 - 分类 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 18 Aug 2026 17:05:11 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" rel="self" type="application/rss+xml"/><item><title>sgl-kernel 算子适配-1</title><link>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-1/</link><pubDate>Tue, 18 Aug 2026 17:05:11 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-1/</guid><description><![CDATA[<h2 id="关键要点回顾">关键要点回顾</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>未分类 - 分类 - CH-Tiger's Note</title><link>https://blog.chsole.eu.org/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/</link><description>未分类 - 分类 - CH-Tiger's Note</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 20 Aug 2026 14:42:45 +0800</lastBuildDate><atom:link href="https://blog.chsole.eu.org/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" rel="self" type="application/rss+xml"/><item><title>sgl-kernel 算子适配-2</title><link>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-2/</link><pubDate>Thu, 20 Aug 2026 14:42:45 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-2/</guid><description><![CDATA[<p>现在立即执行分析。我已经读取了大部分相关代码，下面是<strong>基于实际代码的精确修改方案</strong>：</p>
+<hr>
+<h2 id="1pythonsglangsrtutilspy-添加is_zpu">1️⃣ <code>python/sglang/srt/utils.py</code> — 添加 <code>is_zpu()</code></h2>
+<p>在第 134 行 <code>is_npu()</code> 之后添加：</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 第 137 行后插入：</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">is_zpu</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># PrivateUse1 是 PyTorch 为自定义设备预留的 dispatch key</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 当 zpu SDK 调用 _register_privateuse1_backend(&#34;zpu&#34;) 后，</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 可通过 _get_privateuse1_backend_name() 检测</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_get_privateuse1_backend_name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&#34;zpu&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">RuntimeError</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span></span></span></code></pre></div></div>
+<hr>
+<h2 id="2pythonsglangsrtlayersutilsmulti_platformpy-dispatch-路由">2️⃣ <code>python/sglang/srt/layers/utils/multi_platform.py</code> — dispatch 路由</h2>
+<p>在 <code>dispatch_forward()</code> 方法中（约第 131 行），<code>elif _is_musa</code> 之后添加 zpu 分支：</p>]]></description></item><item><title>深入了解 torch_npu 如何完成模型迁移适配</title><link>https://blog.chsole.eu.org/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/</link><pubDate>Thu, 20 Aug 2026 14:42:45 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/</guid><description><![CDATA[<h2 id="torch_npu-适配深度分析">torch_npu 适配深度分析</h2>
+<p><code>torch_npu</code> 通过<strong>插件机制</strong>将华为昇腾 NPU 无缝接入原生 PyTorch，其核心思路是：<strong>利用 PyTorch 预留的 <code>PrivateUse1</code> 后端扩展点</strong>。以下是完整适配链路：</p>
+<hr>
+<h3 id="一架构总览">一、架构总览</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>PyTorch 原生                           torch_npu 插件
+┌─────────────────────┐     ┌──────────────────────────────────────┐
+│  torch.Tensor       │ ──▶ │  生成 .npu() 方法                    │
+│  torch.nn.Module    │ ──▶ │  生成 .npu() 方法                    │
+│  torch.Storage      │ ──▶ │  生成 .npu() 方法                    │
+│  DeviceType::CUDA   │     │  DeviceType::PrivateUse1 → &#34;npu&#34;     │
+│  DispatchKey::CUDA  │ ──▶ │  DispatchKey::PrivateUse1            │
+│  CUDAGuardImpl      │ ──▶ │  NPUGuardImpl (C10_REGISTER)         │
+│  c10::Stream        │ ──▶ │  NPUStream                           │
+│  torch._C           │ ──▶ │  torch_npu._C (pybind扩展)           │
+│  torch.backends     │ ──▶ │  entry_points: torch.backends        │
+│  torch.cuda.*       │ ──▶ │  torch.npu.* (镜像API)               │
+│  torch.distributed  │ ──▶ │  HCCL backend (替代NCCL)             │
+│  torch.compile      │ ──▶ │  NPU Inductor backend                │
+│  torch.autograd     │ ──▶ │  autograd 算子注册                   │
+│  CANN               │     │  (CANN/ACL底层计算库)                 │
+└─────────────────────┘     └──────────────────────────────────────┘</code></pre></div>
+<hr>
+<h3 id="二关键适配机制按代码定位">二、关键适配机制（按代码定位）</h3>
+<h4 id="1-privateuse1-后端注册-最关键的钩子">1. 🔌 <strong>PrivateUse1 后端注册</strong> — 最关键的钩子</h4>
+<p>PyTorch 原生预留了 <code>c10::DeviceType::PrivateUse1</code> 作为第3方设备扩展点。<code>torch_npu</code> 在 C++ 编译期就静态注册：</p>]]></description></item><item><title>sgl-kernel 算子适配-1</title><link>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-1/</link><pubDate>Thu, 20 Aug 2026 14:42:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-1/</guid><description><![CDATA[<h2 id="关键要点回顾">关键要点回顾</h2>
 <h3 id="你需要的全部修改按顺序">你需要的全部修改（按顺序）</h3>
 <table>
 	<thead>
@@ -62,56 +111,7 @@
 </table>
 <h3 id="核心一句话">核心一句话</h3>
 <blockquote>
-<p><strong><code>torch._C._register_privateuse1_backend(&quot;zpu&quot;)</code> 不需要修改 PyTorch 源码。</strong> 它只是让 PyTorch 知道 &ldquo;zpu&rdquo; 等于 <code>PrivateUse1</code>，然后你的 <code>TORCH_LIBRARY_IMPL(sgl_kernel, PrivateUse1, m)</code> 在 common_ops.so 加载时自然生效。你的 <code>rmsnorm_zpu()</code> 函数内部直接调用 <code>zpu_ops</code> 的 native C API，不需要依赖 PyTorch 的基础算子栈。</p>]]></description></item><item><title>sgl-kernel 算子适配-2</title><link>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-2/</link><pubDate>Tue, 18 Aug 2026 17:05:11 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/sgl-kernel-%E7%AE%97%E5%AD%90%E9%80%82%E9%85%8D-2/</guid><description><![CDATA[<p>现在立即执行分析。我已经读取了大部分相关代码，下面是<strong>基于实际代码的精确修改方案</strong>：</p>
-<hr>
-<h2 id="1pythonsglangsrtutilspy-添加is_zpu">1️⃣ <code>python/sglang/srt/utils.py</code> — 添加 <code>is_zpu()</code></h2>
-<p>在第 134 行 <code>is_npu()</code> 之后添加：</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-python">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 第 137 行后插入：</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">is_zpu</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># PrivateUse1 是 PyTorch 为自定义设备预留的 dispatch key</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 当 zpu SDK 调用 _register_privateuse1_backend(&#34;zpu&#34;) 后，</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 可通过 _get_privateuse1_backend_name() 检测</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_get_privateuse1_backend_name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&#34;zpu&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">RuntimeError</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span></span></span></code></pre></div></div>
-<hr>
-<h2 id="2pythonsglangsrtlayersutilsmulti_platformpy-dispatch-路由">2️⃣ <code>python/sglang/srt/layers/utils/multi_platform.py</code> — dispatch 路由</h2>
-<p>在 <code>dispatch_forward()</code> 方法中（约第 131 行），<code>elif _is_musa</code> 之后添加 zpu 分支：</p>]]></description></item><item><title>Tensorboard 指标 grafana 展示</title><link>https://blog.chsole.eu.org/posts/tensorboard-%E6%8C%87%E6%A0%87-grafana-%E5%B1%95%E7%A4%BA/</link><pubDate>Tue, 18 Aug 2026 17:05:11 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/tensorboard-%E6%8C%87%E6%A0%87-grafana-%E5%B1%95%E7%A4%BA/</guid><description><![CDATA[<h2 id="问题一">问题一</h2>
+<p><strong><code>torch._C._register_privateuse1_backend(&quot;zpu&quot;)</code> 不需要修改 PyTorch 源码。</strong> 它只是让 PyTorch 知道 &ldquo;zpu&rdquo; 等于 <code>PrivateUse1</code>，然后你的 <code>TORCH_LIBRARY_IMPL(sgl_kernel, PrivateUse1, m)</code> 在 common_ops.so 加载时自然生效。你的 <code>rmsnorm_zpu()</code> 函数内部直接调用 <code>zpu_ops</code> 的 native C API，不需要依赖 PyTorch 的基础算子栈。</p>]]></description></item><item><title>Tensorboard 指标 grafana 展示</title><link>https://blog.chsole.eu.org/posts/tensorboard-%E6%8C%87%E6%A0%87-grafana-%E5%B1%95%E7%A4%BA/</link><pubDate>Thu, 20 Aug 2026 14:42:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/tensorboard-%E6%8C%87%E6%A0%87-grafana-%E5%B1%95%E7%A4%BA/</guid><description><![CDATA[<h2 id="问题一">问题一</h2>
 <p>如果写一个 exporter, 用来解析 tensorboard 生成的 metrics文件在暴露给 Prometheus，不做侵入式修改，功能是否可行且一样？</p>
-<p>可行，而且是一个很好的“零侵入”方案，但功能不完全一样。更准确地说：</p>]]></description></item><item><title>分析 NPU 适配sglang源码实现</title><link>https://blog.chsole.eu.org/posts/%E5%88%86%E6%9E%90-npu-%E9%80%82%E9%85%8Dsglang%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/</link><pubDate>Tue, 18 Aug 2026 17:05:11 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E5%88%86%E6%9E%90-npu-%E9%80%82%E9%85%8Dsglang%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/</guid><description><![CDATA[<h2 id="npuascend适配全面分析">NPU（Ascend）适配全面分析</h2>
-<p>SGLang 的 NPU 适配是一个 <strong>分层替换 + 插件注册</strong> 的架构模式，没有对原有 GPU 代码进行大规模修改，而是通过 <strong>策略模式 + 装饰器注册 + 条件导入</strong> 在关键路径上插入 NPU 专属实现。下面从 5 个层次详细拆解。</p>]]></description></item><item><title>深入了解 torch_npu 如何完成模型迁移适配</title><link>https://blog.chsole.eu.org/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/</link><pubDate>Tue, 18 Aug 2026 17:05:11 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-torch_npu-%E5%A6%82%E4%BD%95%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E8%BF%81%E7%A7%BB%E9%80%82%E9%85%8D/</guid><description><![CDATA[<h2 id="torch_npu-适配深度分析">torch_npu 适配深度分析</h2>
-<p><code>torch_npu</code> 通过<strong>插件机制</strong>将华为昇腾 NPU 无缝接入原生 PyTorch，其核心思路是：<strong>利用 PyTorch 预留的 <code>PrivateUse1</code> 后端扩展点</strong>。以下是完整适配链路：</p>
-<hr>
-<h3 id="一架构总览">一、架构总览</h3>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><pre tabindex="0"><code>PyTorch 原生                           torch_npu 插件
-┌─────────────────────┐     ┌──────────────────────────────────────┐
-│  torch.Tensor       │ ──▶ │  生成 .npu() 方法                    │
-│  torch.nn.Module    │ ──▶ │  生成 .npu() 方法                    │
-│  torch.Storage      │ ──▶ │  生成 .npu() 方法                    │
-│  DeviceType::CUDA   │     │  DeviceType::PrivateUse1 → &#34;npu&#34;     │
-│  DispatchKey::CUDA  │ ──▶ │  DispatchKey::PrivateUse1            │
-│  CUDAGuardImpl      │ ──▶ │  NPUGuardImpl (C10_REGISTER)         │
-│  c10::Stream        │ ──▶ │  NPUStream                           │
-│  torch._C           │ ──▶ │  torch_npu._C (pybind扩展)           │
-│  torch.backends     │ ──▶ │  entry_points: torch.backends        │
-│  torch.cuda.*       │ ──▶ │  torch.npu.* (镜像API)               │
-│  torch.distributed  │ ──▶ │  HCCL backend (替代NCCL)             │
-│  torch.compile      │ ──▶ │  NPU Inductor backend                │
-│  torch.autograd     │ ──▶ │  autograd 算子注册                   │
-│  CANN               │     │  (CANN/ACL底层计算库)                 │
-└─────────────────────┘     └──────────────────────────────────────┘</code></pre></div>
-<hr>
-<h3 id="二关键适配机制按代码定位">二、关键适配机制（按代码定位）</h3>
-<h4 id="1-privateuse1-后端注册-最关键的钩子">1. 🔌 <strong>PrivateUse1 后端注册</strong> — 最关键的钩子</h4>
-<p>PyTorch 原生预留了 <code>c10::DeviceType::PrivateUse1</code> 作为第3方设备扩展点。<code>torch_npu</code> 在 C++ 编译期就静态注册：</p>]]></description></item></channel></rss>
+<p>可行，而且是一个很好的“零侵入”方案，但功能不完全一样。更准确地说：</p>]]></description></item><item><title>分析 NPU 适配sglang源码实现</title><link>https://blog.chsole.eu.org/posts/%E5%88%86%E6%9E%90-npu-%E9%80%82%E9%85%8Dsglang%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/</link><pubDate>Thu, 20 Aug 2026 14:42:44 +0800</pubDate><author>CH-Tiger</author><guid>https://blog.chsole.eu.org/posts/%E5%88%86%E6%9E%90-npu-%E9%80%82%E9%85%8Dsglang%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/</guid><description><![CDATA[<h2 id="npuascend适配全面分析">NPU（Ascend）适配全面分析</h2>
+<p>SGLang 的 NPU 适配是一个 <strong>分层替换 + 插件注册</strong> 的架构模式，没有对原有 GPU 代码进行大规模修改，而是通过 <strong>策略模式 + 装饰器注册 + 条件导入</strong> 在关键路径上插入 NPU 专属实现。下面从 5 个层次详细拆解。</p>]]></description></item></channel></rss>
